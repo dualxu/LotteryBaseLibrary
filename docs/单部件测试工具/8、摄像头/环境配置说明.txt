@@ -1,0 +1,9 @@
+1、将以下文件放到system32下
+mfc100d.dll
+msvcp100.dll
+msvcr100.dll
+msvcr100d.dll
+opencv_core248.dll
+opencv_highgui248.dll
+opencv_imgproc248.dll
+2、注册Camera.ocx

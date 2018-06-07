@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<title>ZT兑奖设备测试界面:</title>
+<script type="text/javascript">
+
+//结果显示
+function ShowMsg(INFOdata)
+{
+	document.getElementById("rep").value += INFOdata;
+	document.getElementById("rep").value += "\r\n";
+}
+
+//打开打孔设备
+function opendevice()
+{
+	var strPort = document.getElementById("strCom").value;
+	var nRet = MT100Obj.OpenPunchDev(strPort, 9600);
+	if(nRet == 0)
+		ShowMsg("打开打孔设备成功");
+	else
+		ShowMsg("打开打孔设备失败。状态码："+nRet);
+}
+
+//关闭设备
+function CloseDevice()
+{
+	MT100Obj.CloseDev();
+	ShowMsg("关闭设备");
+}
+
+//打开扫描设备
+function OpenScanDevice()
+{
+	var strPort = document.getElementById("strScanPort").value;	
+	var nRet = MT100Obj.OpenScanDev(strPort, 115200);
+	ShowMsg("打开扫描设备" + nRet);
+}
+
+//复位打孔设备
+function Reset()
+{	
+	var nRet = MT100Obj.PunchReset();
+	if (0 == nRet)
+	{
+		ShowMsg("复位打孔设备 成功" + nRet);
+	}
+	else
+	{
+		ShowMsg("复位打孔设备 失败" + nRet);
+	}
+}
+
+//查打孔设备状态
+function State()
+{	
+	var nRet = MT100Obj.GetPunchState();
+	if (0 == nRet)
+	{
+		ShowMsg("查打孔设备状态 成功" + nRet);
+		ShowMsg("state1: "+MT100Obj.punchState1+" state2: "+MT100Obj.punchState2+" state3: "+MT100Obj.punchState3);
+	}
+	else
+	{
+		ShowMsg("查打孔设备状态 失败 " + nRet);
+	}
+}
+
+//是否有彩票  85 有，78没有
+function IsThereAticket()
+{	
+	var nRet = MT100Obj.IsThereALotteryTicket();
+	if (0 == nRet)
+	{
+		ShowMsg("是否有彩票 成功" + nRet);
+		ShowMsg("ticketState: "+MT100Obj.ticketState);
+	}
+	else
+	{
+		ShowMsg("是否有彩票 失败 " + nRet);
+	}
+}
+
+//扫描
+function Scan()
+{	
+	var nRet = MT100Obj.StartScan();
+	if (0 == nRet)
+	{
+		ShowMsg("启动扫描 成功" + nRet);
+	}
+	else
+	{
+		ShowMsg("启动扫描 失败 " + nRet);
+	}
+}
+
+//停止扫描
+function StopScan()
+{	
+	ShowMsg("停止扫描");
+	var nRet = MT100Obj.StopScan();	
+} 
+
+   
+
+//获取扫描数据
+function GetData()
+{
+	var t = 20;
+  while(t > 0)
+  {
+  	nRet = MT100Obj.GetScanData();
+  	if (0==nRet)
+  	{
+  		ShowMsg("code: "+MT100Obj.BarCode);
+  		break;
+  	}
+  	t = t-1;
+  }
+  if (0 != nRet)
+  {
+  	ShowMsg("获取条码数据失败");
+  } 
+}	
+
+
+//打孔
+function Punch()
+{	
+	var nRet = MT100Obj.Punch();
+	if (0 == nRet)
+	{
+		ShowMsg("打孔 成功" + nRet);
+	}
+	else
+	{
+		ShowMsg("打孔 失败 " + nRet);
+	}
+}
+
+
+</script>
+
+<SCRIPT type="text/javascript" FOR="MT100Obj" EVENT="TextInput(status)" >
+   <!-- insert script commands -->
+   ShowMsg(status);
+  
+</SCRIPT>
+
+</head>
+
+<body  text="dark" leftmargin="80" topmargin="30">
+ <b>ZT兑奖设备测试界面:</b> 
+  <div id="award" style="font-size:50px; color:blue"></div>
+  <OBJECT id="MT100Obj" style="width:0px;height:0" classid="CLSID:EE2AD7CB-C620-4AB9-99D3-F8FED5F02812">
+  </OBJECT>
+  <input type="button" value="打开打孔设备" style="width:100px;height:25px" onclick="opendevice()">
+  <font size="2">串口: </font>
+  <input type="text" style="width:150px;height:15px;"  value= "3"   id= "strCom"> 
+  <input type="button"  value="关闭设备" style="width:100px;height:25px" onclick="CloseDevice()">
+  <br><br>
+  <input type="button" value="打开扫描设备" style="width:100px;height:25px" onclick="OpenScanDevice()">
+  <font size="2">扫描设备串口: </font>
+  <input type="text" style="width:150px;height:15px;"  value= "5"   id= "strScanPort"> 
+  <br><br>
+  <input type="button" value="复位打孔设备" style="width:100px;height:25px" onclick="Reset()">
+  <input type="button" value="查打孔设备状态" style="width:100px;height:25px" onclick="State()"> 
+  <input type="button" value="是否有彩票" style="width:100px;height:25px" onclick="IsThereAticket()">
+  <input type="button" value="启动扫描" style="width:100px;height:25px" onclick="Scan()">
+  <input type="button" value="获取扫描数据" style="width:100px;height:25px" onclick="GetData()">
+  <input type="button" value="停止扫描" style="width:100px;height:25px" onclick="StopScan()">
+  <input type="button" value="打孔" style="width:100px;height:25px" onclick="Punch()">
+   
+<br/>
+   <br><br>结果显示：
+   <BR>
+   <textarea id="rep" rows="17" cols="140"></textarea>
+</body>
+</html>

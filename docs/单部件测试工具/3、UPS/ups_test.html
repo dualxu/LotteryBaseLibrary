@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<title>UPS测试页面:</title>
+<script type="text/javascript">
+
+function OpenDevice()
+{
+	var Type = document.getElementById("Type").value
+	var nRet = IDUps.ZTUPSOpenDevice(Type);
+	if(0 != nRet)
+	{
+		alert("错误码"+nRet);
+	}
+	else
+	{
+		alert("打开设备成功!");
+	}
+}
+
+function CloseDevice()
+{
+	var nRet = IDUps.ZTUPSCloseDevice();
+	if(0 != nRet)
+	{
+		alert("错误码"+nRet);
+	}
+	else
+	{
+		alert("关闭设备成功!");
+	}
+}
+
+function Reset()
+{
+	var nRet = IDUps.ZTUPSReset();
+	if(0 != nRet)
+	{
+		alert("错误码"+nRet);
+	}
+	else
+	{
+		alert("复位设备成功!");
+	}
+}
+
+function GetStatus()
+{
+	var nRet = IDUps.ZTUPSGetStatus();
+	if(0 > nRet)
+	{
+		document.getElementById("Status").value = "错误码"+nRet;
+	}
+	else if(0 == nRet)
+	{
+		document.getElementById("Status").value = "市电正常";
+	}
+	else if(1 == nRet)
+	{
+		document.getElementById("Status").value = "市电断、停电";
+	}
+	else if(2 == nRet)
+	{
+		document.getElementById("Status").value = "电量低";
+	}
+}
+
+function SynchronizeTime()
+{
+	var nRet = IDUps.ZTUPSSynchronizeTime();
+	if(0 != nRet)
+	{
+		alert("错误码"+nRet);
+	}
+	else
+	{
+		alert("同步时间成功!");
+	}
+}
+
+function SetPowerOnTime()
+{
+	var OnTime = document.getElementById("OnTime").value
+	var nRet = IDUps.ZTUPSSetPowerOnTime(OnTime);
+	if(0 != nRet)
+	{
+		alert("错误码"+nRet);
+	}
+	else
+	{
+		alert("设置开机时间成功!");
+	}
+}
+
+function SetPowerOffTime()
+{
+	var OffTime = document.getElementById("OffTime").value
+	var nDelay = document.getElementById("nDelay").value
+	var nRet = IDUps.ZTUPSSetPowerOffTime(OffTime, nDelay);
+	if(0 != nRet)
+	{
+		alert("错误码"+nRet);
+	}
+	else
+	{
+		alert("设置关机时间成功!");
+	}
+}
+</script>
+</head>
+
+<body  text="dark" leftmargin="80" topmargin="10">
+	<b>stm社保控件测试页面:</b> 
+	<br>
+	<object id="IDUps" classid="CLSID:F7762D88-4796-4183-BD1F-7BA72DA288CF" width="0" height="0" hspace="0" vspace="0"></object>	
+	<br>
+	<input type="button" id="OPEN" value="打开ups" style="width:120px;height:25px;" align="right" onclick="OpenDevice()">
+	设备类型:<input type="text" name="Type" id="Type" value="0" style="width: 50px;"> 注：nType为设备类型，现在默认传0
+	<br>
+	<br>
+	<input type="button" id="Close" value="关闭ups" style="width:120px;height:25px;" align="right" onclick="CloseDevice()">
+	<br>
+	<br>
+	<input type="button" id="Reset" value="复位ups" style="width:120px;height:25px;" align="right" onclick="Reset()">
+	<br>
+	<br>
+	<input type="button" id="GetStatus" value="获取ups状态" style="width:120px;height:25px;" align="right" onclick="GetStatus()">
+	设备状态:<input type="text" name="Status" id="Status" value="" style="width: 200px;"> 
+	<br>
+	<br>
+	<input type="button" id="SynchronizeTime" value="同步ups时间" style="width:120px;height:25px;" align="right" onclick="SynchronizeTime()">
+	<br>
+	<br>
+	<input type="button" id="SetPowerOnTime" value="设置ups开机时间" style="width:120px;height:25px;" align="right" onclick="SetPowerOnTime()">
+	开机时间:<input type="text" name="OnTime" id="OnTime" value="0915" style="width: 50px;"> 例如：0915 表示早上9点15分开机
+	<br>
+	<br>
+	<input type="button" id="SetPowerOffTime" value="设置ups关机时间" style="width:120px;height:25px;" align="right" onclick="SetPowerOffTime()">
+	关机时间:<input type="text" name="OffTime" id="OffTime" value="0910" style="width: 50px;"> 
+	延迟时间:<input type="text" name="nDelay" id="nDelay" value="1" style="width: 25px;">
+	例如：0910 表示早上9点10分关机  1延迟1分钟关闭ups电源
+	<br>
+	<br>
+</body>
+</html>

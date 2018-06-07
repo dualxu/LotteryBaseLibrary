@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>摄像头测试页面</title>
+<script type="text/javascript">
+var index = 0;//启动摄像头序号
+function OpenCamera()
+{	
+	index = document.getElementById('index').value;
+	
+	var ret = zT_Camera.OpenCamera(index);
+	document.getElementById('returnResult').innerHTML += "打开摄像头结果："+ret;
+	return ret;
+}
+function CloseCamera()
+{
+	index = document.getElementById('index').value;
+	var ret = zT_Camera.CloseCamera(index);
+	document.getElementById('returnResult').innerHTML += "关闭摄像头结果："+ret;
+	return ret;
+}
+
+function SetWindowHandle()
+{
+	index = document.getElementById('index').value;
+	var ret = zT_Camera.SetWindowHandle(index, 1);
+	document.getElementById('returnResult').innerHTML += "设置窗口句柄结果："+ret;
+	return ret;
+}
+
+function Display()
+{
+	index = document.getElementById('index').value;
+	var ret = zT_Camera.Display(index, "640", "480", "0", "0");
+	document.getElementById('returnResult').innerHTML += "摄像头预览结果："+ret;
+	return ret;
+}
+
+function CancelDisplay()
+{
+	index = document.getElementById('index').value;
+	var ret = zT_Camera.CancelDisplay(index);
+	document.getElementById('returnResult').innerHTML += "关闭预览结果："+ret;
+	return ret;
+}
+
+function TakePicture()
+{
+	var picturepath = document.getElementById('picture').value;
+
+	index = document.getElementById('index').value;
+	var ret = zT_Camera.TakePicture(index,picturepath);
+	document.getElementById('returnResult').innerHTML += "摄像头拍照结果："+ret;
+	return ret;
+}
+
+function PauseDisplay()
+{
+
+	index = document.getElementById('index').value;
+	var ret = zT_Camera.PauseDisplay(index);
+	document.getElementById('returnResult').innerHTML += "中止预览："+ret;
+	return ret;
+}
+
+function ResumeDisplay()
+{
+	index = document.getElementById('index').value;
+	var ret = zT_Camera.ResumeDisplay(index);	
+	document.getElementById('returnResult').innerHTML += "恢复预览："+ret;
+	return ret;
+}
+
+function StartRecord()
+{
+	index = document.getElementById('index').value;
+	var recordpath = document.getElementById('record').value;
+	var ret = zT_Camera.StartRecord(index,recordpath);	
+	document.getElementById('returnResult').innerHTML += "启动录像："+ret;
+	return ret;
+}
+
+function StopRecord()
+{
+	index = document.getElementById('index').value;
+	var ret = zT_Camera.StopRecord(index);	
+	document.getElementById('returnResult').innerHTML += "停止录像："+ret;
+	return ret;
+}
+
+function clear(){
+	document.getElementById('returnResult').innerHTML = "";
+}
+
+</script>
+</head>
+<body>
+  <OBJECT id="zT_Camera"  width="0" height="0" classid="CLSID:3FAD3EE5-2702-4112-AA8F-1A446CDFD60C">
+  </OBJECT>
+  摄像头<input type="text" id="index" value="0"/>
+  <input type="button" value="打开摄像头" style="width:100px;height:25px" onclick="OpenCamera()">
+  <br>
+   保存照片位置： <input type="text" id="picture" value="D:/test.jpg" /><br/>
+   保存视频位置：<input type="text" id="record" value="D:/test.avi"><br/>
+  <input type="button"  value="关闭摄像头" style="width:100px;height:25px" onclick="CloseCamera()">
+  <br>
+  <input type="button"  value="设置窗口句柄" style="width:100px;height:25px" onclick="SetWindowHandle()">
+  <br>
+  <input type="button"  value="预览" style="width:100px;height:25px" onclick="Display()">
+  <br>
+  <input type="button"  value="关闭预览" style="width:100px;height:25px" onclick="CancelDisplay()">
+  <br>
+  <input type="button"  value="抓拍图片" style="width:100px;height:25px" onclick="TakePicture()">
+  <br>
+  <input type="button"  value="中止预览" style="width:100px;height:25px" onclick="PauseDisplay()">
+  <br>
+  <input type="button"  value="恢复预览" style="width:100px;height:25px" onclick="ResumeDisplay()">
+  <br><input type="button"  value="启动录像" style="width:100px;height:25px" onclick="StartRecord()">
+  <br>
+  <input type="button" value="停止录像" style="width:100px;height:25px" onclick="StopRecord()"> 
+  <br>
+  <input type="button"  value="清空打印信息" style="width:100px;height:25px" onclick="clear()">
+  <div id="returnResult" style="font-size:18px; color:#000; margin-top:20px;">
+ </div>
+</body>
+</html>

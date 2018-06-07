@@ -1,0 +1,56 @@
+1、打开摄像头
+short OpenCamera(short index) 
+入参：index 摄像头索引号
+返回：0成功 其它失败
+
+2、关闭摄像头
+short CloseCamera(short index) 
+入参：index 摄像头索引号
+返回：0成功 其它失败
+
+3、设置窗口句柄
+short SetWindowHandle(short index, OLE_HANDLE* hWnd) 
+入参：index 摄像头索引号
+      hWnd  图像显示的窗口句柄
+返回：0成功 其它失败
+不使用该接口，驱动会自动创建窗口以桌面为坐标。
+
+4、预览
+short Display(short index, short width, short height, short x, short y) 
+入参：index  摄像头索引号
+      width  预览窗口宽度
+      height 预览窗口高度
+      x          横坐标
+      y          竖坐标
+返回：0成功 其它失败
+
+5、关闭预览
+short CancelDisplay(short index) 
+入参：index 摄像头索引号
+返回：0成功 其它失败
+
+6、抓拍图片
+short TakePicture(short index, LPCTSTR path) 
+入参：index 摄像头索引号
+      path 图片保存路径
+返回：0成功 其它失败
+
+7、中止预览
+short PauseDisplay(short index) 
+入参：index 摄像头索引号
+返回：0成功 其它失败
+
+8、恢复预览
+short ResumeDisplay(short index) 
+入参：index 摄像头索引号
+返回：0成功 其它失败
+
+9、启动录像
+short StartRecord(short index, LPCTSTR path) 
+入参：index 摄像头索引号
+      path 录像文件保存路径
+返回：0成功 其它失败
+10、停止录像
+short StopRecord(short index) 
+入参：index 摄像头索引号
+返回：0成功 其它失败

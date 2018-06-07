@@ -1,0 +1,15 @@
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\LotteryBaseLib.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\LotteryBaseLib.pdb
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\AxCASHPRIZELib.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\AxTICAICUTLib.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\CASHPRIZELib.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\TICAICUTLib.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\obj\Debug\LotteryBaseLib.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\obj\Debug\LotteryBaseLib.pdb
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\Newtonsoft.Json.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\NLog.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\RestSharp.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\Newtonsoft.Json.xml
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\NLog.xml
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\LotteryBaseLib.XML
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\obj\Debug\LotteryBaseLib.csprojResolveAssemblyReference.cache

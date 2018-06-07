@@ -1,0 +1,417 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>彩票机切纸器测试</title>
+</head>
+
+<body>
+	<OBJECT ID="TiCaiCut1" CLASSID="clsid:DC00FEAD-90AC-4CED-B180-02C59AE8F2CD" width="0" height="0" align="center" hspace="0" vspace="0">
+	</OBJECT>
+	<OBJECT ID="TiCaiCut2" CLASSID="clsid:DC00FEAD-90AC-4CED-B180-02C59AE8F2CD" width="0" height="0" align="center" hspace="0" vspace="0">
+	</OBJECT>
+	<OBJECT ID="TiCaiCut3" CLASSID="clsid:DC00FEAD-90AC-4CED-B180-02C59AE8F2CD" width="0" height="0" align="center" hspace="0" vspace="0">
+	</OBJECT>
+	<OBJECT ID="TiCaiCut4" CLASSID="clsid:DC00FEAD-90AC-4CED-B180-02C59AE8F2CD" width="0" height="0" align="center" hspace="0" vspace="0">
+</OBJECT>
+<br>
+
+彩票机切纸器测试
+<br><br><br><br>
+<div>
+
+      
+       <div  style="float: left;height:700px;">
+          <!--  <font size="2">串口: </font>
+            <input type="text" style="width:133px;height:20px;"  value= "COM3"   id= "strCom">          
+            <input type="button" value="打开设备" 	onclick="TC_Open()"/>
+            <input type="button" value="关闭设备" 	onclick="TC_Close()"/>
+             <br><br><br><br>
+            <input type="button" value="获取状态" 	onclick="TC_State()"/>
+            <font size="2">纸长: </font>
+            <input type="text" style="width:50px;height:20px;"  value= "152"   id= "sLength"> 
+            <input type="button" value="设置纸长" 	onclick="TC_Leng()"/>
+            <input type="button" value="切纸测试" 	onclick="TC_Cut()"/>-->
+            <br>
+			
+               <div  class="one" style="border:1px solid #ccc;">
+                  <div>                   
+				     <font size="2">一号箱 </font><br>
+                     <font size="2"  style="padding-left: 50px; ">彩票种类 </font>  <input id="YIhxpz"  value="5">元</input>
+				  </div>
+					<br>
+				  <div  class="">                    
+                        <font size="2"  style="padding-left: 40px; ">一号箱票出 </font>  <input id="YIhxpc"  value="">张</input>
+                  </div>
+				  <br>
+				  <div>
+				         <font size="2" style="padding-left: 70px; ">串口: </font>
+                         <input type="text" style="width:133px;height:20px;"  value= "COM3"   id= "strCom1"> 
+				  </div>
+            <br>
+               </div>
+            <br><br>
+	   
+               <div  class="two" style="border:1px solid #ccc;">
+                  <div>                    
+					<font size="2">二号箱 </font><br>
+                     <font size="2"  style="padding-left: 50px; ">彩票种类 </font>  <input  id="ERhxpz" value="10">元</input>
+                  </div>				  
+				  <br>
+				  <div  class="">                    
+                        <font size="2"  style="padding-left: 40px; ">二号箱票出 </font>  <input id="ERhxpc"  value="">张</input>
+                  </div>
+                 <br>
+				 <div>
+				         <font size="2" style="padding-left: 70px; ">串口: </font>
+                         <input type="text" style="width:133px;height:20px;"  value= "COM3"   id= "strCom2"> 
+				  </div>
+               </div>
+            <br><br>
+			
+               <div  class="three" style="border:1px solid #ccc;">
+                   <div>
+					 <font size="2">三号箱 </font><br>
+                     <font size="2"  style="padding-left: 50px; ">彩票种类 </font>  <input  id="SANhxpz" value="20">元</input>
+				   </div>
+					 <br>
+				  <div  class="">                    
+                        <font size="2"  style="padding-left: 40px; ">三号箱票出 </font>  <input id="SANhxpc"  value="">张</input>
+                  </div>
+            <br>
+			      <div>
+				         <font size="2" style="padding-left: 70px; ">串口: </font>
+                         <input type="text" style="width:133px;height:20px;"  value= "COM3"   id= "strCom3"> 
+				  </div>
+              </div>
+            <br><br>
+			
+               <div  class="three" style="border:1px solid #ccc;">
+                  <div>                    
+					<font size="2">四号箱 </font><br>
+                     <font size="2"  style="padding-left: 50px; ">彩票种类 </font>  <input  id="SIhxpz" value="30">元</input>
+				  </div>
+					 <br>
+				  <div  class="">                    
+                      <font size="2"  style="padding-left: 40px; ">四号箱票出 </font>  <input id="SIhxpc"  value="">张</input>
+                  </div>
+            <br>
+			      <div>
+				         <font size="2" style="padding-left: 70px; ">串口: </font>
+                         <input type="text" style="width:133px;height:20px;"  value= "COM3"   id= "strCom4"> 
+				  </div>
+              </div>
+       </div>
+<br>
+       
+       <div   style="float: left;height:900px; padding-left: 50px;"  >
+              <textarea id="rep" rows="40" cols="120"  ></textarea>
+       </div>
+		<div>
+           <input id="cp" type="button" style="width:200px;height:50px;" value="出票" 	onclick="TC_Cut1()"/>
+	   </div>
+      <!--
+        <div   style="float: left;height:700px; padding-left: 50px;" >
+            <div  style="border:1px solid #ccc;"> 
+			 <font size="2">出票测试 </font><br><br>
+			 <div  class="">                    
+                     <font size="2"  style="padding-left: 80px; ">一号箱票出 </font>  <input id="YIhxpc"  value="">张</input>
+               </div>
+            <br><br><br><br>
+             <div  class="">                    
+                     <font size="2"  style="padding-left: 80px; ">二号箱票出 </font>  <input id="ERhxpc"  value="">张</input>
+               </div>
+            <br><br><br><br>
+			<div  class="">                    
+                     <font size="2"  style="padding-left: 80px; ">三号箱票出 </font>  <input id="SANhxpc"  value="">张</input>
+               </div>
+            <br><br><br><br>
+			<div  class="">                    
+                     <font size="2"  style="padding-left: 80px; ">四号箱票出 </font>  <input id="SIhxpc"  value="">张</input>
+               </div>
+            <br><br><br><br>
+	
+			<input id="cp" type="button" style="width:200px;height:50px;" value="出票" 	onclick="TC_Cut1()"/>
+			</div>
+        </div>
+     -->
+
+</div>
+</body>
+
+<script language="javascript">
+
+//连接设备
+function TC_Open(TiCaiCut,strCom)
+{
+	var mes = document.getElementById("rep").value + '\n';
+
+	var nRet = document.getElementById(TiCaiCut).Open(strCom, 9600);
+	if ( 0==nRet )
+	{
+		document.getElementById("rep").value = mes+ "连接设备成功" + nRet;
+	} 
+	else
+	{
+		document.getElementById("rep").value = mes+ "连接设备失败" + nRet;
+	}
+}
+
+//获取状态
+function TC_State(TiCaiCut)
+{
+	var mes = document.getElementById("rep").value + '\n';
+	var nRet = document.getElementById(TiCaiCut).GetState();
+	document.getElementById("rep").value = mes+ "获取状态返回" + nRet;
+}
+
+//关闭设备
+function TC_Close(TiCaiCut)
+{
+	var mes = document.getElementById("rep").value + '\n';
+	document.getElementById(TiCaiCut).Close();
+	document.getElementById("rep").value = mes+ "关闭设备成功";
+}
+
+     //根据票价种类设置号箱的纸长    
+function  TC_Leng1(Xhxpz,TiCaiCut,Xhxpc){
+	var sLeng = 0;
+   if(Xhxpz == "5"){        //四号箱纸长(五元)
+        sLeng = Xhxpc * 101.6;
+        var nRet = document.getElementById(TiCaiCut).SetLeng(sLeng);
+  }else if(Xhxpz == "10"){  //四号箱纸长(十元)
+        sLeng = Xhxpc * 152;
+        var nRet = document.getElementById(TiCaiCut).SetLeng(sLeng);
+ 
+  }else if(Xhxpz == "20"){  //四号箱纸长(二十元)
+        sLeng = Xhxpc * 202;
+        var nRet = document.getElementById(TiCaiCut).SetLeng(sLeng);
+  }else if(Xhxpz == "30"){  //四号箱纸长(三十元)
+        sLeng = Xhxpc * 254;
+        var nRet = document.getElementById(TiCaiCut).SetLeng(sLeng);
+  }else{                          //错误提示
+        var mes = document.getElementById("rep").value + '\n';
+        document.getElementById("rep").value = mes+ "设置纸长返回" + nRet;
+  } 
+ //切纸
+    var mes = document.getElementById("rep").value + '\n';
+	var nRet = document.getElementById(TiCaiCut).CutPaper();
+	document.getElementById("rep").value = mes+ "切票返回" + nRet;
+   
+   }
+   
+   
+//切纸出票   
+ function TC_Cut1()
+ {
+ 
+ //获取一号箱串口
+   var strCom1 = document.getElementById("strCom1").value;
+//获取二号箱串口
+   var strCom2 = document.getElementById("strCom2").value;
+//获取三号箱串口
+   var strCom3 = document.getElementById("strCom3").value;
+//获取四号箱串口
+   var strCom4 = document.getElementById("strCom4").value;
+
+ 
+ //获取一号箱票种
+   var YIhxpz = document.getElementById("YIhxpz").value;
+//获取二号箱票种
+   var ERhxpz = document.getElementById("ERhxpz").value;
+//获取三号箱票种
+   var SANhxpz = document.getElementById("SANhxpz").value;
+//获取四号箱票种
+   var SIhxpz = document.getElementById("SIhxpz").value;
+
+   
+//获取一号箱张数
+   var YIhxpc = document.getElementById("YIhxpc").value;   
+//获取二号箱张数
+   var ERhxpc = document.getElementById("ERhxpc").value;     
+//获取三号箱张数
+   var SANhxpc = document.getElementById("SANhxpc").value;     
+//获取四号箱张数
+   var SIhxpc = document.getElementById("SIhxpc").value;  
+   
+     if( YIhxpc > "0"){
+	     TC_Open("TiCaiCut1",strCom1);
+		 TC_State("TiCaiCut1",strCom1);
+	     TC_Leng1(YIhxpz,"TiCaiCut1",YIhxpc); 
+		 TC_Close("TiCaiCut1");
+	 } 
+     if( ERhxpc > "0"){
+	     TC_Open("TiCaiCut2",strCom2);
+		 TC_State("TiCaiCut2",strCom2);
+	     TC_Leng1(ERhxpz,"TiCaiCut2",ERhxpc); 
+		 TC_Close("TiCaiCut2");
+	 }  
+	 if( SANhxpc > "0"){
+	     TC_Open("TiCaiCut3",strCom3);
+		 TC_State("TiCaiCut3",strCom3);
+	     TC_Leng1(SANhxpz,"TiCaiCut3",SANhxpc); 
+		 TC_Close("TiCaiCut3");
+	 }
+     if( SIhxpc > "0"){
+	     TC_Open("TiCaiCut4",strCom4);
+		 TC_State("TiCaiCut4",strCom4);
+	     TC_Leng1(SIhxpz,"TiCaiCut4",SIhxpc); 
+		 TC_Close("TiCaiCut4");
+	 }	 
+ }
+ 
+ 
+ 
+ 
+ 
+/*
+//设置纸长
+function TC_Leng()
+{
+	var sLeng = document.getElementById("sLength").value;
+	var mes = document.getElementById("rep").value + '\n';
+
+	var nRet = TiCaiCut.SetLeng(sLeng);
+	document.getElementById("rep").value = mes+ "设置纸长返回" + nRet;
+}
+
+//切纸
+function TC_Cut()
+{
+	var mes = document.getElementById("rep").value + '\n';
+
+	var nRet = TiCaiCut.CutPaper();
+	document.getElementById("rep").value = mes+ "切票返回" + nRet;
+}
+
+
+
+
+function TC_Cut1111()
+{
+//获取一号箱票种
+   var YIhxpz = document.getElementById("YIhxpz").value;
+//获取二号箱票种
+   var ERhxpz = document.getElementById("ERhxpz").value;
+//获取三号箱票种
+   var SANhxpz = document.getElementById("SANhxpz").value;
+//获取四号箱票种
+   var SIhxpz = document.getElementById("SIhxpz").value;
+
+   
+//获取一号箱张数
+   var YIhxpc = document.getElementById("YIhxpc").value;   
+//获取二号箱张数
+   var ERhxpc = document.getElementById("ERhxpc").value;     
+//获取三号箱张数
+   var SANhxpc = document.getElementById("SANhxpc").value;     
+//获取四号箱张数
+   var SIhxpc = document.getElementById("SIhxpc").value;      
+   
+   
+   
+   
+ 根据票价种类设置号箱一的纸长 
+   if(YIhxpz == "5"){        //一号箱纸长(五元)
+        sLeng1 = YIhxpc * 101.6;
+        var nRet = TiCaiCut.SetLeng(sLeng1);
+  }else if(YIhxpz == "10"){  //一号箱纸长(十元)
+        sLeng1 = YIhxpc * 152;
+        var nRet = TiCaiCut.SetLeng(sLeng1);
+ 
+  }else if(YIhxpz == "20"){  //一号箱纸长(二十元)
+        sLeng1 = YIhxpc * 202;
+        var nRet = TiCaiCut.SetLeng(sLeng1);
+  }else if(YIhxpz == "30"){                          //一号箱纸长(三十元)
+        sLeng1 = YIhxpc * 254;
+        var nRet = TiCaiCut.SetLeng(sLeng1);
+ }else{                          //错误提示
+        var mes = document.getElementById("rep").value + '\n';
+        document.getElementById("rep").value = mes+ "设置纸长返回" + nRet;
+ }
+ //根据票价种类设置号箱二的纸长 
+   if(ERhxpz == "5"){        //二号箱纸长(五元)
+        sLeng2 = ERhxpc * 101.6;
+        var nRet = TiCaiCut1.SetLeng(sLeng2);
+  }else if(ERhxpz == "10"){  //二号箱纸长(十元)
+        sLeng2 = ERhxpc * 152;
+        var nRet = TiCaiCut1.SetLeng(sLeng2);
+ 
+  }else if(ERhxpz == "20"){  //二号箱纸长(二十元)
+        sLeng2 = ERhxpc * 202;
+        var nRet = TiCaiCut1.SetLeng(sLeng2);
+  }else if(ERhxpz == "30"){  //二号箱纸长(三十元)
+        sLeng2 = ERhxpc * 254;
+        var nRet = TiCaiCut1.SetLeng(sLeng2);
+ }else{                          //错误提示
+        var mes = document.getElementById("rep").value + '\n';
+        document.getElementById("rep").value = mes+ "设置纸长返回" + nRet;
+ }
+  //根据票价种类设置号箱三的纸长 
+   if(SANhxpz == "5"){        //三号箱纸长(五元)
+        sLeng3 = SANhxpc * 101.6;
+        var nRet = TiCaiCut2.SetLeng(sLeng3);
+  }else if(SANhxpz == "10"){  //三号箱纸长(十元)
+        sLeng3 = SANhxpc * 152;
+        var nRet = TiCaiCut2.SetLeng(sLeng3);
+ 
+  }else if(SANhxpz == "20"){  //三号箱纸长(二十元)
+        sLeng3 = SANhxpc * 202;
+        var nRet = TiCaiCut2.SetLeng(sLeng3);
+  }else if(SANhxpz == "30"){  //三号箱纸长(三十元)
+        sLeng3 = SANhxpc * 254;
+        var nRet = TiCaiCut2.SetLeng(sLeng3);
+ }else{                          //错误提示
+        var mes = document.getElementById("rep").value + '\n';
+        document.getElementById("rep").value = mes+ "设置纸长返回" + nRet;
+ }
+  //根据票价种类设置号箱四的纸长 
+   if(SIhxpz == "5"){        //四号箱纸长(五元)
+        sLeng4 = SIhxpc * 101.6;
+        var nRet = TiCaiCut3.SetLeng(sLeng4);
+  }else if(SIhxpz == "10"){  //四号箱纸长(十元)
+        sLeng4 = SIhxpc * 152;
+        var nRet = TiCaiCut3.SetLeng(sLeng4);
+ 
+  }else if(SIhxpz == "20"){  //四号箱纸长(二十元)
+        sLeng4 = SIhxpc * 202;
+        var nRet = TiCaiCut3.SetLeng(sLeng4);
+  }else if(SIhxpz"30"){  //四号箱纸长(三十元)
+        sLeng4 = SIhxpc * 254;
+        var nRet = TiCaiCut3.SetLeng(sLeng4);
+ }else{                          //错误提示
+        var mes = document.getElementById("rep").value + '\n';
+        document.getElementById("rep").value = mes+ "设置纸长返回" + nRet;
+ }
+ 
+ 
+ 
+ //切纸  
+ var nRet = TiCaiCut.CutPaper();    
+   
+    var mes = document.getElementById("rep").value + '\n';
+	var nRet = TiCaiCut.CutPaper();
+	var nRet = TiCaiCut1.CutPaper();
+	var nRet = TiCaiCut2.CutPaper();
+	var nRet = TiCaiCut3.CutPaper();
+	document.getElementById("rep").value = mes+ "切票返回" + nRet; 
+ 
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+

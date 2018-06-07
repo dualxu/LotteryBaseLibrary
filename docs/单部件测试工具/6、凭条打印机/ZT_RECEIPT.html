@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>凭条打印机测试页面:</title>
+<script type="text/javascript">
+var chestr = "";
+
+function ShowMsg(INFOdata)
+{
+	document.getElementById("EXECUTERESULT").value += INFOdata;
+	document.getElementById("EXECUTERESULT").value += "\r\n";
+}
+
+
+/*1.打开设备*/
+function OpenPort()
+{
+	var strPort = document.getElementById("PORT").value;
+	var strFlag = document.getElementById("TYPE").value;
+	var nRet = ZT_Receipt.OpenDevice(strPort,strFlag);
+	if(nRet == 0)
+		ShowMsg("成功打开设备");
+	else
+	{
+		ShowMsg("打开设备失败，错误码:"+nRet+"详细信息："+ZT_Receipt.ErrMsg); 
+	}
+}
+
+function autoOpenPort() //自动检测打开串口
+{
+	var strFlag = document.getElementById("TYPE").value;
+	var nRet = ZT_Receipt.AutoOpenDevice(strFlag);
+	if(nRet == 0)
+		ShowMsg("自动检测打开串口成功");
+	else
+	{
+		ShowMsg("自动检测打开串口失败，错误码:"+nRet+"详细信息："+ZT_Receipt.ErrMsg); 
+	}
+}
+
+/*2.关闭设备*/
+function ClosePort()
+{
+	var nRet = ZT_Receipt.CloseDevice();
+	if(nRet == 0)
+		ShowMsg("成功关闭设备");
+	else
+	{
+		ShowMsg("\r\n关闭设备失败，错误码:" + nRet + "详细信息"+ZT_Receipt.ErrMsg);
+	}
+}
+
+/*3. 设备复位*/
+function Retset()
+{
+	var nRet = ZT_Receipt.Reset();
+	if(nRet == 0)
+		ShowMsg("复位成功");
+	else
+	{
+		ShowMsg("复位失败，错误码:" + nRet + "详细信息："+ZT_Receipt.ErrMsg);
+	}
+}
+
+/*4. 取得设备状态*/
+function GetStatus()
+{
+	var nRet = ZT_Receipt.GetStatus();
+	if(nRet == 0)
+		ShowMsg("取状态成功");
+	else if(nRet == 1)
+	{
+		ShowMsg("设备纸将尽");
+	}
+	else if(nRet == 2)
+	{
+		ShowMsg("设备缺纸");
+	}
+	else
+	{
+		ShowMsg("取状态，错误码:" + nRet + "详细信息："+ZT_Receipt.ErrMsg);
+	}	
+}
+
+/*5. 设置黑标模式*/
+function SetMarkMode()
+{
+	var nMarkMode = document.getElementById("MARKMODE").value;
+	var nRet = ZT_Receipt.SetMarkMode(nMarkMode);
+	if(nRet == 0)
+		ShowMsg("模式设置成功");
+	else
+	{
+		ShowMsg("模式设置失败，错误码:" + nRet+"详细信息:"+ZT_Receipt.ErrMsg);
+	}
+}
+
+
+/*6.设置黑标参数*/
+function SetMarkModePara()
+{
+	var nStartPosition = document.getElementById("STARTPOSITION").value;
+	var nCutPosition = document.getElementById("CUTPOSITION").value;
+	var nInvoiceLen = document.getElementById("INVOICELEN").value;
+	var nRet = ZT_Receipt.SetMarkModePara(nStartPosition,nCutPosition,nInvoiceLen);
+	if(nRet == 0)
+		ShowMsg("设置黑标参数成功");
+	else
+	{
+	ShowMsg("设置黑标参数失败，错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+	}
+}
+
+/*7. 设置行间距*/
+function SetRowDistance()
+{
+	var fRowdis = document.getElementById("DISTANCE").value;
+	var nRet = ZT_Receipt.SetRowDistance(fRowdis);
+	if(nRet == 0)
+		ShowMsg("设置行间距成功");
+	else
+	{
+		ShowMsg("设置行间距失败，错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+	}	
+}
+
+/*8.识别黑标*/
+function BlackMarkIdentify()
+{
+	var nRet = ZT_Receipt.BlackMarkIdentify();
+	if(nRet == 0)
+		ShowMsg("识别黑标成功");
+	else
+	{
+		ShowMsg("识别黑标失败，错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+	}
+}
+
+/*9. 打印数据*/
+function PrintLine()
+{
+	chestr ="";
+	PrintStyle();
+	var PrintData = document.getElementById("DATATABLE").value;
+	var nRet = ZT_Receipt.PrintLine(PrintData, chestr);
+	if(nRet == 0)
+		ShowMsg("打印数据成功");
+	else
+	{
+		ShowMsg("打印数据失败，错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+	}
+}
+
+/*10. 打印一行数据*/
+function PrintData()
+{
+	chestr = "";
+	PrintStyle();
+	var print_data = document.getElementById("ROWDATA").value;
+	var bEndLine = document.getElementById("SWAPROW").value;
+	var nRet = ZT_Receipt.PrintData(print_data, bEndLine, chestr);
+	if(nRet == 0)
+		ShowMsg("打印一行数据功");
+	else
+		ShowMsg("打印一行数据失败，错误码:" + nRet+ "详细信息:"+ZT_Receipt.ErrMsg);
+}
+
+
+/*11. 走纸*/
+function FeedLines()
+{
+	var FeedDistance = document.getElementById("FEEDDISTINCE").value;
+	var nRet = ZT_Receipt.FeedLines(FeedDistance);
+	if(nRet == 0)
+		ShowMsg("成功走纸");
+	else
+	{
+		ShowMsg("走纸失败，错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+	}
+}
+
+/*12. 切纸*/
+function CutPaper()
+{
+	var nRet = ZT_Receipt.CutPaper();
+	if(nRet == 0)
+		ShowMsg("成功切纸");
+	else
+		ShowMsg("切纸失败，错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);	
+}
+
+/*13. 设置左边距*/
+function SetLeftDistance()
+{
+	var leftDistance = document.getElementById("LEFTDISTANCE").value;
+	var nRet = ZT_Receipt.SetLeftDistance(leftDistance);
+	if(nRet == 0)
+		ShowMsg("设置左边距成功");
+	else
+		ShowMsg("设置左边距失败，错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+}
+
+/*14. 打印图片*/
+function PrintBitMap()
+{
+	var strFileName = document.getElementById("FILENAME").value;
+	var nDistance = document.getElementById("PICLEFTDISTANCE").value;
+	
+	var nRet = ZT_Receipt.PrintBitmap(strFileName, nDistance);
+	if(nRet == 0)
+		ShowMsg("打印图片成功");
+	else
+		ShowMsg("打印图片失败，错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+}
+
+/*15. 打印NV位图 */
+function PrintNVBitmap()
+{
+	var nNvBMPNum = document.getElementById("NVBMPNUM").value;
+	var left_margin = document.getElementById("NVLEFTMARGIN").value;
+	var nRet = ZT_Receipt.PrintNVBitmap(nNvBMPNum, left_margin);
+	if(nRet == 0)
+		ShowMsg("打印NV位图成功");
+	else
+		ShowMsg("打印NV位图失败，错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+}
+
+
+/*16. 打印打码*/
+function printcode()
+{
+	var pData = document.getElementById("DATA").value;
+	var Addition = document.getElementById("ADDITIONDATA").value;
+	var iType = document.getElementById("PRINTFORM").value;
+	var iBytePos = document.getElementById("POSITION").value;
+	var fBarCodeWidth = document.getElementById("WIDTH").value;
+	var fBarCodeHeight = document.getElementById("HEIGHT").value;
+	var strFontType = document.getElementById("PRINTFONT").value;
+	var nRet = ZT_Receipt.PrinterCode(pData, Addition, iType, iBytePos, fBarCodeWidth, fBarCodeHeight, strFontType);
+	if(nRet == 0)
+		ShowMsg("成功打印");
+	else
+		ShowMsg("打印失败， 错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+}
+/*17. 打印QR二维码*/
+function PrintQRCode()
+{
+	var QRdata = document.getElementById("QRdata").value;
+	var QRResize = document.getElementById("QRResize").value;
+	var nRet = ZT_Receipt.PrintQRCode(QRdata, QRResize);
+	if(nRet == 0)
+		ShowMsg("成功打印");
+	else
+		ShowMsg("打印失败， 错误码:" + nRet + "详细信息:"+ZT_Receipt.ErrMsg);
+}
+function PrintStyle()
+{
+	var arr = new Array();
+	var str=document.getElementsByName("checkbox");
+	var objarray=str.length;
+	var k=0;
+	for (var i=0;i<objarray;i++)
+	{
+		if(str[i].checked)
+		{
+				arr[k] = str[i].value;
+				k++;
+		}
+	}
+	
+	for(var j=0;j<k;j++)
+	{
+		if(arr[j]!="")
+		{
+			chestr += arr[j];
+			if(j==k-1)
+				break;
+			chestr +='|';
+		}
+	}
+}
+</script>
+</head>
+
+<body  text="dark" leftmargin="80" topmargin="30">
+ <b>凭条打印机测试界面:</b> <font size="1px"><b>注：单位:毫米</b></font>
+  <div id="award" style="font-size:50px; color:blue"></div>
+  <OBJECT id="ZT_Receipt"  style="width:0px;height:0" classid="CLSID:71A6537A-97BD-4A5E-AD5A-1FFD305F6385" > </OBJECT>
+
+  <input type="button" id="OPENPORT"  value="打开串口" style="width:100px;height:25px;" onclick="OpenPort()">
+  <font size="2">通信参数: </font>
+  <input type="text" style="width:120px;height:15px;"  value= "COM2:38400:E:8:1"   id= "PORT"> 
+  <font size="2">设备类型:</font>
+  <select id="TYPE" size=1 style="width:140px;height:20px">
+		<option value="0">0--ZT532</option>
+		<option value="1">1--ZTP80</option>
+  </select>
+
+  <br>
+<font size="2">说明:ZT532的波特率是38400，ZTP80的波特率是115200 </font>
+ 
+ <input type="button" id="OPENPORT"  value="自动检测打开串口" style="width:150px;height:25px;" onclick="autoOpenPort()">
+ 
+  <br>	
+  <input type="button" id="CLOSEPORT" value="关闭串口" style="width:100px;height:25px" onclick="ClosePort()">
+  <br>
+  
+  <input type="button" id="RETSET" value="设备复位" style="width:100px;height:25px" onclick="Retset()">
+  <br>
+  
+  <input type="button" id="GETSTATUS" value="设备状态" style="width:100px;height:25px" onclick="GetStatus()">
+  <br>
+
+  
+
+  <input type="button" id="SETROWDISTANCE" value="设置行间距" style="width:100px;height:25px" onclick="SetRowDistance()">
+  <font size="2">行间距大小毫米:</font>
+  <input   type="text"  value= "4.3"  style="width:20px;height:15px;"  id = "DISTANCE"> 
+  <br>
+
+
+  <input type="button" id="PRINTLINE" value="打印数据" style="width:100px;height:25px" onclick="PrintLine()">
+  <font size="2">要打印的数据:</font>
+  <input   type="text"  style="width:200px;height:15px;" value= "123456789123456789ABCDEF"   id = "DATATABLE">
+   <font size="2" >打印风格:</font>
+  <input type="checkbox" name="checkbox" id="A" value="DoubleHeight" /><font size=1 color=blue>倍高</font>
+  <input type="checkbox" name="checkbox" id="B" value="DoubleWidth"/><font size=1 color=blue>倍宽</font>
+  <input type="checkbox" name="checkbox" id="C" value="CharacterB"/><font size="1" color=blue>字型B</font>
+  <input type="checkbox" name="checkbox" id="D" value="Boldface"/><font size="1" color=blue>加粗</font>
+  <input type="checkbox" name="checkbox" id="E" value="UnderLine" /><font size="1" color=blue>下划线</font>
+  <br>
+
+  <input type="button" id="PRINTDATA" value="打印一行数据" style="width:100px;height:25px" onclick="PrintData()">
+  <font size="2">要打印的数据:</font>
+  <input   type="text"  style="width:150px;height:15px;" value= "hello world"   id = "ROWDATA">
+  <font size="2">是否结束行:</font>
+  <select id="SWAPROW" size=1 style="width:110px;height:20px">
+		<option value="0">0-不是结束行</option>
+		<option value="1">1--是结束行</option>
+  </select>
+  <font size="2">打印风格:</font>
+  <input type="checkbox" name="checkbox" id="A" value="DoubleHeight" /><font size="1" color=blue>倍高</font>
+  <input type="checkbox" name="checkbox" id="B" value="DoubleWidth"/><font size="1" color=blue>倍宽</font>
+  <input type="checkbox" name="checkbox" id="C" value="CharacterB"/><font size="1" color=blue>字型B</font>
+  <input type="checkbox" name="checkbox" id="D" value="Boldface"/><font size="1" color=blue>加粗</font>
+  <input type="checkbox" name="checkbox" id="E" value="UnderLine" /><font size="1" color=blue>下划线</font>
+  <br>
+
+  <input type="button" id="FEEDSLINES" value="走纸" style="width:100px;height:25px" onclick="FeedLines()">
+  <font size="2">走纸高度:</font>
+  <input   type="text"  style="width:30px;height:15px;" value= "30"   id = "FEEDDISTINCE">
+	<br>
+	
+  <input type="button" id="CUTPAPER" value="切纸" style="width:100px;height:25px" onclick="CutPaper()">
+  <br>
+
+  <input type="button" id="SETLEFTDISTANCE" value="设置左边距" style="width:100px;height:25px" onclick="SetLeftDistance()">
+  <font size="2">左边距大小:</font>
+  <input   type="text"  style="width:20px;height:15px;" value= "0"   id = "LEFTDISTANCE">
+  <br>
+
+  
+  
+  <input type="button" id="PRINTERCODE" value="打印打码" style="width:100px;height:25px" onclick="printcode()">
+  <font size="2">数据:</font>
+  <input  type="text"  style="width:100px;height:15px;" value= "012345678912"   id = "DATA">
+  <font size="2">附加数据:</font>
+  <input   type="text"  style="width:100px;height:15px;" value= "12345"   id = "ADDITIONDATA">
+  <font size="2">风格:</font>
+  <select id="PRINTFORM" style="HEIGHT: 20px; WIDTH: 120px" >
+	  <OPTION VALUE="2">2--ENA13</OPTION>
+      <OPTION VALUE="65">65--UPCA</OPTION>
+	  <OPTION VALUE="66">66--UPCE</OPTION>
+      <OPTION VALUE="67">67--JAN13(EAN13)</OPTION>
+      <OPTION VALUE="68">68--JAN 8(EAN8)</OPTION>
+	  <OPTION VALUE="69">69--CODE39</OPTION>
+	  <OPTION VALUE="70">70--ITF</OPTION>
+	  <OPTION VALUE="71">71--CODABAR</OPTION>
+	  <OPTION VALUE="72">72--CODE93</OPTION>
+	  <OPTION VALUE="73">73--CODE128</OPTION>
+	  <OPTION VALUE="75">75--ENA8</OPTION>
+   </select>
+  <font size="2">位置:</font>
+    <select id="POSITION" style="HEIGHT: 20px; WIDTH: 120px" >
+      <OPTION VALUE="0">0 -不打印HRI字符</OPTION>
+	  <OPTION VALUE="1">1 -条码上方打印</OPTION>
+      <OPTION VALUE="2">2 -条码下方打印</OPTION>
+	  <OPTION VALUE="3">3 -条码上下方打印</OPTION>
+   </select>
+   <br>
+   <div style="text-indent: 7em;">
+   <font size="2">高度:</font>
+  <input   type="text"  style="width:20px;height:15px;" value= "162"   id = "HEIGHT">
+  <font size="2">宽度:</font>
+  <input   type="text"  style="width:20px;height:15px;" value= "3"   id = "WIDTH">
+    <font size="2">字体:</font>
+    <select id="PRINTFONT" style="HEIGHT: 20px; WIDTH: 120px" >
+      <OPTION VALUE="0">0 —常规字体</OPTION>
+	  <OPTION VALUE="1">1 -小字体</OPTION>
+   </select>
+  <br>
+  <input type="button" id="PrintQRCode" value="QR二维码" style="width:100px;height:25px" onclick="PrintQRCode()">
+  <font size="2">二维码数据:</font>
+  <input  type="text"  style="width:200px;height:15px;" value= "深圳市证通电子"   id = "QRdata">
+  <font size="2">放大倍数:</font><input  type="text"  style="width:20px;height:15px;" value= "4"   id = "QRResize">
+  <br>
+  操作执行结果提示:
+  <textarea id="EXECUTERESULT" rows="20" cols="145"></textarea>
+</body>
+</html>

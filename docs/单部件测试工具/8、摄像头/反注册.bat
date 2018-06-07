@@ -1,0 +1,1 @@
+regsvr32 -u D:\ZT_CAMERA\Camera.ocx

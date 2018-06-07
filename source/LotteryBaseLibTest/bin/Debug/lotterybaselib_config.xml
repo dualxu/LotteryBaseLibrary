@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <!--平台接口-->
+  <CM_BaseURL>new-orator.com</CM_BaseURL>
+  <!---->
+  <CM_AccountId>username</CM_AccountId>
+  <!---->
+  <CM_SecretKey>secretkey</CM_SecretKey>
+  <!--设备别名-->
+  <CM_DeviceAlias>dummy</CM_DeviceAlias>
+  <!--重试次数-->
+  <CM_RetryNum>3</CM_RetryNum>
+  <!--设备是否已注册-->
+  <CM_IsRegisted>false</CM_IsRegisted>
+  <!--设备类别-->
+  <CM_Category_id>1</CM_Category_id>
+  <!--硬件版本号-->
+  <CM_Hardware_version>1.2.0.1</CM_Hardware_version>
+  <!--软件版本号-->
+  <CM_Software_version>1.2.0.4</CM_Software_version>
+</root>

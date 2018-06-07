@@ -1,0 +1,44 @@
+152 202
+regsvr32 C:\Dll\ZT_UPSOCX.ocx
+ZT_UPSOCX.ocx
+clasid={F7762D88-4796-4183-BD1F-7BA72DA288CF}
+
+注意事项：
+1.配置文件为  Device.ini 
+2.配置文件路径为 C:\\szzt\\config\\Device.ini
+3.配置文件中注意配置ZT_UPS.dll的调用路径和日志log路径
+
+
+接口返回错误定义：
+0   //成功
+-1  //错误
+
+ups获取状态定义：
+0  //正常（市电正常)
+1  //告警（市电断、停电）
+2  //告警（电量低）
+
+对外接口：
+
+1. 打开ups
+short ZTUPSOpenDevice(short nType)  注：nType为设备类型，现在默认传0
+
+2. 关闭ups
+short ZTUPSCloseDevice() 
+
+3. 复位ups 
+short ZTUPSReset()
+
+4. 获取ups状态 
+short ZTUPSGetStatus()
+
+5. 设置ups同步时间
+short ZTUPSSynchronizeTime()
+
+6. 设置ups开机时间
+short ZTUPSSetPowerOnTime(LPCTSTR szOnTimes)  注：szOnTimes为开机时间(24小时制) 例如 "0915" 表示早上9点15分开机
+
+7. 设置ups关机时间
+short ZTUPSSetPowerOffTime(LPCTSTR szOffTimes, short nDelaySeconds)  
+注：szOffTimes为关机时间(24小时制) 例如 "0910" 表示早上9点10分关机 
+    nDelaySeconds 为延迟关闭ups电源分钟数，最多延迟10分钟，建议设置延迟1-2分钟。

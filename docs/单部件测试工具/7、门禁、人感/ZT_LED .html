@@ -1,0 +1,279 @@
+﻿<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>灯带感应设备测试</title>
+ </head>
+ <body>
+   	 <OBJECT id="ZT_LED"  style="width:0px;height:0" classid="CLSID:EF4945B8-5674-4F2F-9BCB-B0084E8FD61A">  </OBJECT>
+
+ <div id="all" >
+   <div>灯带，感应器，门禁开关测试页面</div>
+	
+	设备类型：
+	<select id="type"  width="100px;">
+		<option value="0">0-ZT127 - B12 </option>
+		<option  value="1">1-创泽板 </option>
+		<option  value="2">2-ZT127 - C10 </option>
+	</select>
+	<button onclick="OpenDevice()">开启设备</button><br/><br/>
+	<button onclick="CloseDevice()">关闭设备</button><br/><br/>
+	<button onclick="GetStatus()">获取状态</button><br/><br/>
+
+	<!--
+	<button onclick="SetLightParam()">设置开关参数</button>
+	灯号：<input id="lightNum" value="1"/>
+	灯光模式：
+	<select id="ledModel"  width="100px;">
+		<option value="0">0-灭灯</option>
+		<option  value="1">1-常量 </option>
+		<option  value="2">2-闪灯</option>
+	</select>
+	闪灯周期：
+	<select id="ledround" width="100px;">
+		<option value="1">1-1/4秒</option>
+		<option  value="2">2- 1/3秒</option>
+		<option  value="3">3-1/2秒</option>
+		<option value="4">4-1秒</option>
+		<option  value="5">5-2秒 </option>
+		<option  value="6">6-3秒</option>
+		<option value="7">7-4秒</option>
+		<option  value="8">8-6秒 </option>
+	</select>
+	<br/><br/>
+
+	<div>
+	-->
+	<!--
+		<br/>
+		0-ZT127 灯号 1-14  <br/> 创泽板 灯号 1-16 
+		<table width="600px" height="200px;" style="margin-left:10px;">
+			
+			<tr>
+				<td width="180px;" ><button id="testAll()">综合灯测试</button></td>
+				<td>
+				1:<select id="light1"  width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				2:<select id="light2"  width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				3:<select id="light3"  width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				4:<select id="light4"  width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+			</tr>
+			<tr>
+			<td></td>
+				<td>
+				5:<select id="light5" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				6:<select id="light6" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				7:<select id="light7" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				8:<select id="light8" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+			</tr>
+			<tr>
+			<td></td>
+				<td>
+				9:<select id="light9" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				10:<select id="light10" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				11:<select id="light11" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				12：<select id="light12" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+			</tr>
+			<tr>
+			<td></td>
+				<td>
+				13:<select id="light13" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				14:<select id="light14" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				15:<select id="light15" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+				<td>
+				16:<select id="light16" width="100px;">
+					<option value="0">0-灭灯</option>
+					<option  value="1">1-常量 </option>
+					<option  value="2">2-闪灯</option>
+				 </select>
+				</td>
+			</tr>
+		</table>
+
+		-->
+		<div><button onclick="GetDoorsStatus()">获取门禁,人体感应状态</button></div>
+		<!--<div style="margin-left:100px;">
+		 <input id="box1" type="checkbox">1  <input id="box2" type="checkbox">2  <input id="box3"  type="checkbox">3  <input id="box4" type="checkbox">  4
+		 <input id="box5" type="checkbox"> 5 <input id="box6" type="checkbox"> 6<input id="box7" type="checkbox"> 7 <input id="box8" type="checkbox"> 8 <br/>
+		<input id="box9" type="checkbox"> 9 <input id="box10" type="checkbox"> 10 <input id="box11" type="checkbox"> 11 <input id="box12" type="checkbox">  12
+		 <input id="box13" type="checkbox"> 13 <input id="box14" type="checkbox">14 <input id="box15" type="checkbox">15  <input id="box16" type="checkbox">16  <br/>-->
+		</div>
+		
+	</div>
+	 <button onclick="clear1111()">清除数据</button>
+	 <div id="returnResult" style="font-size:18px; color:#000; margin-top:20px;">
+	 操作执行结果提示:<br>
+		<textarea id="EXECUTERESULT" rows="60" cols="105"></textarea>
+	 </div>
+	 
+<script type="text/javascript">
+
+function clear1111(){
+	document.getElementById("EXECUTERESULT").value ="";
+}
+
+
+
+function ShowMsg(INFOdata)
+{
+	document.getElementById("EXECUTERESULT").value += INFOdata;
+	document.getElementById("EXECUTERESULT").value += "\r\n";
+}
+
+function OpenDevice()
+{
+
+	
+	
+	var type = document.getElementById('type').value ;
+	var ret = ZT_LED.AutoOpenDevice(type);
+
+	ShowMsg("打开设备结果："+ret);
+	return ret;
+}
+function CloseDevice()
+{
+	var ret = ZT_LED.CloseDevice();
+
+	ShowMsg("关闭设备结果结果："+ret);
+	return ret;
+}
+
+function GetStatus()
+{
+	var ret = ZT_LED.GetStatus();
+	ShowMsg("获取状态结果："+ret);
+	return ret;
+}
+//设置开关参数
+function SetLightParam()
+{
+	var lightNum = document.getElementById('lightNum').value;
+	
+	var ledModel = document.getElementById('ledModel').value;
+	var ledround = document.getElementById('ledround').value;
+	//灯号，模式，周期
+	var ret = ZT_LED.SetLightParam(lightNum,ledModel,ledround);
+	document.getElementById('returnResult').innerHTML += "设置开关参数结果："+ret;
+	return ret;
+}
+
+//设置门禁开关
+function GetDoorsStatus()
+{
+	var ret = ZT_LED.GetDoorsStatus();
+	ShowMsg("门禁状态结果："+ret);
+	if(ret =="1110000100001000"){
+		//有人，开门
+		ShowMsg("状态结果：有人，关门");
+	}else if(ret =="1110000000001000"){
+		//有人，关
+		ShowMsg("状态结果:有人，开门");
+	}else if(ret =="1110000000001001"){
+		//没人,关门
+		ShowMsg("状态结果：没人,开门");
+	}else if(ret =="1110000100001001"){
+		//没人，开门
+		
+		ShowMsg("状态结果：没人，关门");
+	}else{
+		//门禁状态获取失败	
+		
+		ShowMsg("门禁状态结果：监控失败");
+	}
+	
+	
+	return ret;
+}
+
+
+
+</script>
+ </body>
+</html>
