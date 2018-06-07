@@ -187,7 +187,10 @@ namespace LotteryBaseLibTest
                     rcpd.application = "cashPrize.Req";
                     rcpd.awardStatus = "";
                     rcpd.cashType = "0";
-                    rcpd.lotteryNo = "3603790001554250559443096279598";
+                    Console.WriteLine("请输入彩票序列号:");
+                    string lotteryno = Console.ReadLine();
+                    if (lotteryno == "") lotteryno = "3603790001554250012285104303358";
+                    rcpd.lotteryNo = lotteryno;
                     rcpd.misc = "";
                     rcpd.prizeAmt = "50000";
                     rcpd.prizeStatus = "1";
@@ -212,7 +215,10 @@ namespace LotteryBaseLibTest
                     AwardOrderRsp aorsp = new AwardOrderRsp();
                     RequestAwardOrderData raod = new RequestAwardOrderData();
                     raod.application = "awardOrder.Req";
-                    raod.lotteryNo = "3603790001554250559443096279598";
+                    Console.WriteLine("请输入彩票序列号:");
+                    lotteryno = Console.ReadLine();
+                    if (lotteryno == "") lotteryno = "3603790001554250012285104303358";
+                    raod.lotteryNo = lotteryno;
                     raod.misc = "";
                     raod.reqType = "02";
                     raod.sendIp = "";
@@ -221,6 +227,11 @@ namespace LotteryBaseLibTest
                     raod.terminalCode = "0001";
                     raod.terminalId = "10000";
                     raod.userId = "oB4nYjnoHhuWrPVi2pYLuPjnCaU0";
+                    Console.WriteLine("请输入支付方式(1-支付宝,2-微信):");
+                    string paytype = Console.ReadLine();
+                    if (paytype == "1") paytype = "01";
+                    else paytype = "02";
+                    raod.payType = paytype;
                     raod.version = "1.0.0";
                     
                     aoreq.requestData = raod;

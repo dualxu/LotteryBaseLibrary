@@ -896,6 +896,12 @@ namespace LotteryBaseLib.TerminalIf
         /// </summary>
         public string lotteryNo { get; set; }
         /// <summary>
+        /// 支付类型
+        /// 01 支付宝
+        /// 02 微信
+        /// </summary>
+        public string payType { get; set; }
+        /// <summary>
         /// 自定义保留域，C
         /// </summary>
         public string misc { get; set; }

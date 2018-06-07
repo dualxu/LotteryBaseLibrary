@@ -1194,6 +1194,13 @@
             彩票序列号，多张以，分隔
             </summary>
         </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestAwardOrderData.payType">
+            <summary>
+            支付类型
+            01 支付宝
+            02 微信
+            </summary>
+        </member>
         <member name="P:LotteryBaseLib.TerminalIf.RequestAwardOrderData.misc">
             <summary>
             自定义保留域，C
