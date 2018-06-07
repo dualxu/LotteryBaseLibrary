@@ -246,7 +246,17 @@ namespace LotteryBaseLibTest
                     TerminalUpdateRsp tursp = new TerminalUpdateRsp();
                     RequestTerminalUpdateData rtud = new RequestTerminalUpdateData();
                     rtud.application = "terminalUpdate.Req";
-                    rtud.boxStatus = "1,2,3,4";
+                    foreach (TerminalInitLotteryDtosItem dtos in initDtosItems)
+                    {
+                        if (rtud.boxStatus == "" || rtud.boxStatus == null)
+                        {
+                            rtud.boxStatus = dtos.boxId;
+                        }
+                        else
+                        {
+                            rtud.boxStatus = "," + dtos.boxId;
+                        }
+                    }                    
                     rtud.misc = "";
                     rtud.reqType = "02";
                     rtud.sendIp = "";

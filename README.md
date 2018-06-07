@@ -4,7 +4,7 @@
 ---
 - docs：相关文档
 - reference：参考文档或源码
-- source：原代码
+- source：源代码，包括库及库测试
 
 **LotteryBaseLib库**
 ---
