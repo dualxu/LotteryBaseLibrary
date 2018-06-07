@@ -1,1 +1,90 @@
 # LotteryBaseLib
+----
+**目录**
+---
+- docs：相关文档
+- reference：参考文档或源码
+- source：原代码
+
+**LotteryBaseLib库**
+---
+LotteryBaseLib包括库项目及测试项目
+
+- CashPrize: 扫描仪、打孔设备接口
+- TerminalIf:终端通讯接口
+- TiCaiCut： 切纸器设备接口
+
+**环境**
+---
+- Visual Studio 2012
+- .net Framework 4.5
+
+CashPrize和TiCaiCut接口需先在系统下使用regsvr32.exe注册对应.ocx控件。
+
+终端通讯接口：TerminalIf
+
+<pre><code>
+    /// <summary>
+    /// TerminalIf接口定义
+    /// </summary>
+    public interface ITerminalIfHandler
+    {
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="terminalinitreq">初始化请求</param>
+        /// <returns></returns>
+        TerminalInitRsp TerminalInit(TerminalInitReq terminalinitreq);
+
+        /// <summary>
+        /// 预下单
+        /// </summary>
+        /// <param name="preporderreq">预下单请求</param>
+        /// <returns></returns>
+        PrepOrderRsp PrepOrder(PrepOrderReq preporderreq);
+
+        /// <summary>
+        /// 交易查询
+        /// </summary>
+        /// <param name="queryorderreq">交易查询请求</param>
+        /// <returns></returns>
+        QueryOrderRsp QueryOrder(QueryOrderReq queryorderreq);
+
+        /// <summary>
+        /// 出票状态更新
+        /// </summary>
+        /// <param name="outticketreq">出票状态更新请求</param>
+        /// <returns></returns>
+        OutTicketRsp OutTicket(OutTicketReq outticketreq);
+
+        /// <summary>
+        /// 终端兑奖
+        /// </summary>
+        /// <param name="cashprizereq">终端兑奖请求</param>
+        /// <returns></returns>
+        CashPrizeRsp CashPrize(CashPrizeReq cashprizereq);
+
+        /// <summary>
+        /// 派奖
+        /// </summary>
+        /// <param name="awardorderreq">派奖请求</param>
+        /// <returns></returns>
+        AwardOrderRsp AwardOrder(AwardOrderReq awardorderreq);
+
+        /// <summary>
+        /// 终端状态同步
+        /// </summary>
+        /// <param name="terminalupdatereq"></param>
+        /// <returns></returns>
+        TerminalUpdateRsp TerminalUpdate(TerminalUpdateReq terminalupdatereq);
+
+        /// <summary>
+        /// 广告查询
+        /// </summary>
+        /// <param name="terminalinitreq"></param>
+        /// <returns></returns>
+        QueryAdsRsp QueryAds(QueryAdsReq terminalinitreq);
+    }
+</code></pre>
+
+
