@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>扫描仪测试页面</title>
+<script type="text/javascript">
+	var m_bStartup = 0;
+	var int=self.setInterval("GetData()", 500);
+
+function ShowMsg(INFOdata)
+{
+	document.getElementById("rep").value += INFOdata;
+	document.getElementById("rep").value += "\r\n";
+}
+
+function OpenDevice()
+{
+
+	
+	var nRet = ZTSCAN.OpenDevice(document.getElementById("StrComm").value); 
+	if(0 == nRet)
+	{
+		ShowMsg("开启扫描仪成功");
+	}
+	else
+	{
+
+		ShowMsg("!!!开启扫描仪失败");
+	}
+}
+function GetVersion()
+{ 
+	
+	var sRet = ZTSCAN.GetVersion();
+	if( sRet.length<1)
+	{
+			ShowMsg("!!!获取版本信息：" + ZTSCAN.ErrMsg); 
+			return;
+  }
+  ShowMsg("获取版本信息成功：" + sRet); 
+  return ;	
+}
+
+function Startup()
+{
+	var nRet = ZTSCAN.Startup(); 
+	if(0 == nRet)
+	{
+		m_bStartup = 1;
+		ShowMsg("启动扫描仪成功");
+	}
+	else
+	{
+		m_bStartup = 0;
+		ShowMsg("!!!启动扫描仪失败");
+	}
+}
+function Stop()
+{
+
+	m_bStartup = 0;
+	var nRet = ZTSCAN.Stop(); 
+	if(0 == nRet)
+	{
+		ShowMsg("结束扫描仪成功");
+	}
+	else
+	{
+		ShowMsg("!!!结束扫描仪失败");
+	}
+}
+function GetData()
+{ 
+	if(m_bStartup != 1)
+	return;
+	
+	var sRet = ZTSCAN.GetData();
+	if( sRet.length<1)
+	{
+			//ShowMsg("!!!执行结果：" + ZTSCAN.ErrMsg); 
+			return;
+  }
+  m_bStartup = 0;
+  ShowMsg("执行成功：" + sRet); 
+  return ;	
+}
+function CloseDevice()
+{
+	m_Startup = 0;
+	var Result = ZTSCAN.CloseDevice();
+	ShowMsg("关闭设备成功：" + Result); 
+}
+</script>
+</head>
+
+<body  text="dark" leftmargin="80" topmargin="10">
+ <font size="3" color= blue>扫描仪SE2102.证测试界面</font>
+  <div id="award" style="font-size:50px; color:blue"></div>                                      
+  <OBJECT id="ZTSCAN" codeBase="C:\#version=1,0,0,1" style="width:0px;height:0" classid="CLSID:92EB7C29-2565-4DEE-9827-B77EFB6AE2B1" > </OBJECT>
+  <input type="button" value="开启设备" style="width:100px;height:25px" onclick="OpenDevice()">
+
+  <font size="2">串口参数:</font>
+   <input type="text" style="width:110px;height:15px;"  value= "COM9:115200:N:8:1"   id= "StrComm"> 
+  <input type="button" value="获取版本信息" style="width:100px;height:25px" onclick="GetVersion()">
+    <input type="button" value="关闭设备" style="width:100px;height:25px" onclick="CloseDevice()"><br>
+  <input type="button" value="启动扫描" style="width:100px;height:25px" onclick="Startup()">
+  <input type="button" value="结束扫描" style="width:100px;height:25px" onclick="Stop()"><br>
+  
+  <br>
+  调用逻辑：
+  1.OpenDevice()
+  2.Startup()
+  3.循环执行GetData()直到获取扫描数据 结束；或 执行 Stop() 停止扫描
+  4.CloseDevice()
+  <br><br>
+  结果显示：
+  <br>
+  <textarea id="rep" rows="40" cols="145"></textarea>
+  
+</body>
+</html>

@@ -31,11 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxCASHPRIZELib">
+    <Reference Include="AxCASHPRIZELib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Applications\Microsoft Visual Studio 11.0\VC\AxCASHPRIZELib.dll</HintPath>
     </Reference>
-    <Reference Include="AxTICAICUTLib">
+    <Reference Include="AxTICAICUTLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Applications\Microsoft Visual Studio 11.0\VC\AxTICAICUTLib.dll</HintPath>
+    </Reference>
+    <Reference Include="AxZT_SCANNERSE2102Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Applications\Microsoft Visual Studio 11.0\VC\AxZT_SCANNERSE2102Lib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -63,6 +69,7 @@
     <Compile Include="CashPrize\CashPrize.cs" />
     <Compile Include="LotteryBaseLib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scanner\Scanner.cs" />
     <Compile Include="TerminalIf\JsonTools.cs" />
     <Compile Include="TerminalIf\SHA1WithRSA.cs" />
     <Compile Include="TerminalIf\TerminalClass.cs" />

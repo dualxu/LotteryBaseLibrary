@@ -103,6 +103,61 @@
             测试用公钥
             </summary>
         </member>
+        <member name="T:LotteryBaseLib.Scanner.Scanner">
+            <summary>
+            扫描仪ScannerSE2102类
+            调用逻辑：
+            1.OpenDevice()
+            2.Startup()
+            3.循环执行GetData()直到获取到扫描数据然后Stop（）停止扫描 结束；或 直接执行 Stop() 停止扫描
+            4.再从第2步开始，或第5步关闭设备
+            5.CloseDevice()
+            </summary>
+        </member>
+        <member name="M:LotteryBaseLib.Scanner.Scanner.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:LotteryBaseLib.Scanner.Scanner.OpenDevice(System.Int16)">
+            <summary>
+            打开扫描设备
+            </summary>
+            <param name="iPort">端口号，例如1表示串口1</param>
+            <returns>返回：0-成功，其他失败</returns>
+        </member>
+        <member name="M:LotteryBaseLib.Scanner.Scanner.CloseDevice">
+            <summary>
+            关闭扫描设备
+            </summary>
+            <returns>返回：0-成功，其他失败</returns>
+        </member>
+        <member name="M:LotteryBaseLib.Scanner.Scanner.GetVersion(System.String@)">
+            <summary>
+            获取版本号
+            </summary>
+            <param name="version">版本号或错误信息</param>
+            <returns>返回：0-成功，其他失败</returns>
+        </member>
+        <member name="M:LotteryBaseLib.Scanner.Scanner.Startup">
+            <summary>
+            启动扫描
+            </summary>
+            <returns>返回：0-成功，其他失败</returns>
+        </member>
+        <member name="M:LotteryBaseLib.Scanner.Scanner.Stop">
+            <summary>
+            停止扫描
+            </summary>
+            <returns>返回：0-成功，其他失败</returns>
+        </member>
+        <member name="M:LotteryBaseLib.Scanner.Scanner.GetData(System.String@)">
+            <summary>
+            获取扫描数据
+            </summary>
+            <param name="BarCode">成功时返回扫描到的条形码</param>
+            <returns>返回：0-成功，其他失败</returns>
+        </member>
         <member name="T:LotteryBaseLib.TerminalIf.JsonTools">
             <summary>
             JsonTools 对象和Json字符串互转,MD5加密等工具类

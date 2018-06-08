@@ -20,6 +20,7 @@ namespace LotteryBaseLibTest
             label_menu:
             Console.WriteLine("");
             Console.WriteLine("----------------------------------------------------------------------------");
+            Console.WriteLine("*****已弃用接口*****");
             Console.WriteLine("1.打开打孔设备");
             Console.WriteLine("2.打开扫描设备");
             Console.WriteLine("3.复位打孔设备");

@@ -24,9 +24,10 @@ namespace LotteryBaseLibTest
             label_menu:
             Console.WriteLine("");
             Console.WriteLine("--------------------------------------------------------------------");
-            Console.WriteLine("1.CashPrize               扫描仪、打孔设备");
+            Console.WriteLine("1.CashPrize       (已废弃)扫描仪、打孔设备");
             Console.WriteLine("2.TiCaiCut                彩票切纸器");
-            Console.WriteLine("3.TerminalIf              终端接口");
+            Console.WriteLine("3.Scanner                 扫描设备");
+            Console.WriteLine("4.TerminalIf              终端接口");
             Console.WriteLine("0.退出");
             Console.WriteLine("--------------------------------------------------------------------");
 
@@ -42,8 +43,12 @@ namespace LotteryBaseLibTest
                     t2.TiCaiCut_Test();
                     break;
                 case "3":
-                    Test_TerminalIf t3 = new Test_TerminalIf();
-                    t3.TerminalIf_Test();
+                    Test_Scanner t3 = new Test_Scanner();
+                    t3.Scanner_Test();
+                    break;
+                case "4":
+                    Test_TerminalIf t4 = new Test_TerminalIf();
+                    t4.TerminalIf_Test();
                     break;                   
                 case "0":
                     goto label_exit;

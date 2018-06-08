@@ -9,7 +9,7 @@
   <!--设备别名-->
   <CM_DeviceAlias>dummy</CM_DeviceAlias>
   <!--重试次数-->
-  <CM_RetryNum>3</CM_RetryNum>
+  <CM_RetryNum>1</CM_RetryNum>
   <!--设备是否已注册-->
   <CM_IsRegisted>false</CM_IsRegisted>
   <!--设备类别-->

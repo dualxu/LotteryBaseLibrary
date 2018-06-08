@@ -12,4 +12,5 @@ D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\Res
 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\Newtonsoft.Json.xml
 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\NLog.xml
 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\LotteryBaseLib.XML
-D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\obj\Debug\LotteryBaseLib.csprojResolveAssemblyReference.cache
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\AxZT_SCANNERSE2102Lib.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\ZT_SCANNERSE2102Lib.dll
