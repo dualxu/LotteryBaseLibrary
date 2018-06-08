@@ -10,18 +10,62 @@
 ---
 LotteryBaseLib包括库项目及测试项目
 
-- CashPrize: 扫描仪、打孔设备接口
+- CashPrize: 扫描仪、打孔设备接口(已弃用但代码保留)
 - TerminalIf:终端通讯接口
 - TiCaiCut： 切纸器设备接口
+- Scanner:   扫描设备接口
 
 **环境**
 ---
 - Visual Studio 2012
 - .net Framework 4.5
 
-CashPrize和TiCaiCut接口需先在系统下使用regsvr32.exe注册对应.ocx控件。
+CashPrize和TiCaiCut,ZT_ScannerSE2102接口需先在系统下使用regsvr32.exe注册对应.ocx控件。
 
-**扫描仪、打孔设备接口接口:CashPrize**
+**扫描设备接口:Scanner**
+---
+<pre><code>
+		/// <summary>
+        /// 打开扫描设备
+        /// </summary>
+        /// <param name="iPort">端口号，例如1表示串口1</param>
+        /// <returns>返回：0-成功，其他失败</returns>
+        public int OpenDevice(short iPort);
+
+        /// <summary>
+        /// 关闭扫描设备
+        /// </summary>
+        /// <returns>返回：0-成功，其他失败</returns>
+        public int CloseDevice();
+
+        /// <summary>
+        /// 获取版本号
+        /// </summary>
+        /// <param name="version">版本号或错误信息</param>
+        /// <returns>返回：0-成功，其他失败</returns>
+        public int GetVersion(out string version);
+
+        /// <summary>
+        /// 启动扫描
+        /// </summary>
+        /// <returns>返回：0-成功，其他失败</returns>
+        public int Startup();
+
+        /// <summary>
+        /// 停止扫描
+        /// </summary>
+        /// <returns>返回：0-成功，其他失败</returns>
+        public int Stop();
+
+        /// <summary>
+        /// 获取扫描数据
+        /// </summary>
+        /// <param name="BarCode">成功时返回扫描到的条形码</param>
+        /// <returns>返回：0-成功，其他失败</returns>
+        public int GetData(out string BarCode);
+</code></pre>
+
+**扫描仪、打孔设备接口接口:CashPrize(已弃用但代码保留)**
 ---
 
 <pre><code>
