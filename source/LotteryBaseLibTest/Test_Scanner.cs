@@ -21,10 +21,11 @@ namespace LotteryBaseLibTest
             Console.WriteLine("");
             Console.WriteLine("----------------------------------------------------------------------------");
             Console.WriteLine("1.打开扫描设备");
-            Console.WriteLine("2.启动扫描");
-            Console.WriteLine("3.获取扫描数据(条形码)");
-            Console.WriteLine("4.停止扫描");
-            Console.WriteLine("5.关闭设备");
+            Console.WriteLine("2.获取版本号");
+            Console.WriteLine("3.启动扫描");
+            Console.WriteLine("4.获取扫描数据(条形码)");
+            Console.WriteLine("5.停止扫描");
+            Console.WriteLine("6.关闭设备");
             Console.WriteLine("0.退出");
             Console.WriteLine("----------------------------------------------------------------------------");
 
@@ -40,10 +41,22 @@ namespace LotteryBaseLibTest
                     Console.WriteLine("OpenDevice:" + RetOpenDevice.ToString());
                     break;
                 case "2":
+                    string strVersion = "";
+                    int RetGetVersion = cp.GetVersion(out strVersion);
+                    if (RetGetVersion != 0)
+                    {
+                        Console.WriteLine("GetVersion:" + RetGetVersion + ",ErrMsg:" + strVersion);
+                    }
+                    else
+                    {
+                        Console.WriteLine("GetVersion:" + strVersion);
+                    }
+                    break;
+                case "3":
                     int RetStartup = cp.Startup();
                     Console.WriteLine("Startup:" + RetStartup.ToString());
                     break;
-                case "3":
+                case "4":
                     string barcode = "";
                     int RetGetData = cp.GetData(out barcode);
                     Console.WriteLine("GetData:" + RetGetData.ToString());
@@ -56,11 +69,11 @@ namespace LotteryBaseLibTest
                         Console.WriteLine("GetData,ErrMsg:" + barcode);
                     }
                     break;
-                case "4":
+                case "5":
                     int RetStop = cp.Stop();
                     Console.WriteLine("Stop:" + RetStop.ToString());
                     break;
-                case "5":
+                case "6":
                     int RetCloseDevice = cp.CloseDevice();
                     Console.WriteLine("CloseDevice:" + RetCloseDevice.ToString());
                     break;
