@@ -1,0 +1,88 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>彩票机切纸器测试</title>
+</head>
+
+<body>
+	<OBJECT ID="TiCaiCut" CLASSID="clsid:DC00FEAD-90AC-4CED-B180-02C59AE8F2CD" width="0" height="0" align="center" hspace="0" vspace="0">
+</OBJECT>
+<br>
+
+彩票机切纸器测试
+<br>
+
+  <font size="2">串口: </font>
+  <input type="text" style="width:133px;height:20px;"  value= "COM3"   id= "strCom"> 
+
+<input type="button" value="打开设备" 	onclick="TC_Open()"/>
+<input type="button" value="关闭设备" 	onclick="TC_Close()"/>
+<br>
+<input type="button" value="获取状态" 	onclick="TC_State()"/>
+  <font size="2">纸长: </font>
+  <input type="text" style="width:50px;height:20px;"  value= "152"   id= "sLength"> 
+<input type="button" value="设置纸长" 	onclick="TC_Leng()"/>
+<input type="button" value="切纸测试" 	onclick="TC_Cut()"/>
+<br>
+<textarea id="rep" rows="30" cols="145"></textarea>
+</body>
+
+<script language="javascript">
+
+//连接设备
+function TC_Open()
+{
+	var strPort = document.getElementById("strCom").value;
+	var mes = document.getElementById("rep").value + '\n';
+
+	var nRet = TiCaiCut.Open(strPort, 9600);
+	if ( 0==nRet )
+	{
+		document.getElementById("rep").value = mes+ "连接设备成功" + nRet;
+	} 
+	else
+	{
+		document.getElementById("rep").value = mes+ "连接设备失败" + nRet;
+	}
+}
+//关闭设备
+function TC_Close()
+{
+	var mes = document.getElementById("rep").value + '\n';
+
+	TiCaiCut.Close();
+	document.getElementById("rep").value = mes+ "关闭设备成功";
+}
+
+//获取状态
+function TC_State()
+{
+	var strPort = document.getElementById("strCom").value;
+	var mes = document.getElementById("rep").value + '\n';
+
+	var nRet = TiCaiCut.GetState();
+	document.getElementById("rep").value = mes+ "获取状态返回" + nRet;
+}
+
+//设置纸长
+function TC_Leng()
+{
+	var sLeng = document.getElementById("sLength").value;
+	var mes = document.getElementById("rep").value + '\n';
+
+	var nRet = TiCaiCut.SetLeng(sLeng);
+	document.getElementById("rep").value = mes+ "设置纸长返回" + nRet;
+}
+
+//切纸
+function TC_Cut()
+{
+	var mes = document.getElementById("rep").value + '\n';
+
+	var nRet = TiCaiCut.CutPaper();
+	document.getElementById("rep").value = mes+ "切票返回" + nRet;
+}
+
+</script>
+
+
+

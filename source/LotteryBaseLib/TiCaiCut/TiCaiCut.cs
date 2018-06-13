@@ -44,7 +44,7 @@ namespace LotteryBaseLib.TiCaiCut
         /// <summary>
         /// 设置长度
         /// </summary>
-        /// <param name="length">长度，5元:101.6,10元:152,20元:202,30元:254</param>
+        /// <param name="length">长度，5元:102,10元:152,20元:203,30元:254</param>
         /// <returns></returns>
         public short SetLength(short length)
         {

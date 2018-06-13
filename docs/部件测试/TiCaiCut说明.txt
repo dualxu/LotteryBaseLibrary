@@ -1,0 +1,16 @@
+控件名称：
+TiCaiCut Control
+
+控件ID
+DC00FEAD-90AC-4CED-B180-02C59AE8F2CD
+
+方法：
+凡有返回值的函数，返回值0正常 -1打开失败 -2硬件错误 -3缺纸
+[id(1)] short Open(BSTR sPort, short iBPS);
+[id(2)] void Close();
+[id(3)] short GetState();
+[id(4)] short SetLeng(short iLeng);
+[id(5)] short CutPaper();
+
+多个切纸器对应多个实例
+实例的存活期为一直有效
