@@ -607,6 +607,21 @@ namespace LotteryBaseLib.TerminalIf
                     {
                         queryadsrsp.respCode = response.StatusCode.ToString();
                     }
+                    //广告图片下载/更新配置文件
+                    if (queryadsrsp.responseData != null)
+                    {
+                        if (queryadsrsp.responseData.adsList != null)
+                        {
+                            if (queryadsrsp.responseData.adsList.Count > 0)
+                            {
+                                foreach (QueryAdsLotteryDtosItem ads in queryadsrsp.responseData.adsList)
+                                {
+                                    AdsDownloader.DownloadPicture(ads.filePath, ".\\adsDownloadDir", 20000);
+                                }
+                                AdsDownloader.UpdateAdsDownloadConfig(queryadsrsp.responseData.adsList);
+                            }
+                        }
+                    }
                     return queryadsrsp;
                 }
                 else

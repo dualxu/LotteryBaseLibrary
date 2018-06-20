@@ -158,6 +158,27 @@
             <param name="BarCode">成功时返回扫描到的条形码</param>
             <returns>返回：0-成功，其他失败</returns>
         </member>
+        <member name="T:LotteryBaseLib.TerminalIf.AdsDownloader">
+            <summary>
+            广告下载类
+            </summary>
+        </member>
+        <member name="M:LotteryBaseLib.TerminalIf.AdsDownloader.DownloadPicture(System.String,System.String,System.Int32)">
+            <summary>
+            下载图片
+            </summary>
+            <param name="picUrl">图片Http地址</param>
+            <param name="savePath">图片保存路径</param>
+            <param name="timeOut">Request最大请求时间，如果为-1则无限制</param>
+            <returns></returns>
+        </member>
+        <member name="M:LotteryBaseLib.TerminalIf.AdsDownloader.UpdateAdsDownloadConfig(System.Collections.Generic.List{LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItem})">
+            <summary>
+            更新广告查询结果XML配置文件
+            </summary>
+            <param name="adslist"></param>
+            <returns></returns>
+        </member>
         <member name="T:LotteryBaseLib.TerminalIf.JsonTools">
             <summary>
             JsonTools 对象和Json字符串互转,MD5加密等工具类
@@ -371,6 +392,12 @@
             接口版本号，R，默认1.0
             </summary>
         </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseInitData.sessionKey">
+            <summary>
+            登录后返回的SESSIONID,C
+            保留动态密钥，暂时无用
+            </summary>
+        </member>
         <member name="P:LotteryBaseLib.TerminalIf.ResponseInitData.terminalCode">
             <summary>
             终端类型
@@ -537,6 +564,11 @@
         <member name="P:LotteryBaseLib.TerminalIf.RequestPrepOrderData.merOrderId">
             <summary>
             订单编号
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestPrepOrderData.merOrderTime">
+            <summary>
+            订单时间,YYYYMMDDHHmmss
             </summary>
         </member>
         <member name="P:LotteryBaseLib.TerminalIf.RequestPrepOrderData.orderAmt">
@@ -1558,11 +1590,6 @@
             终端编号
             </summary>
         </member>
-        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAdsData.misc">
-            <summary>
-            自定义保留域，C
-            </summary>
-        </member>
         <member name="T:LotteryBaseLib.TerminalIf.QueryAdsReq">
             <summary>
             广告查询请求
@@ -1668,16 +1695,6 @@
         <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAdsData.adsList">
             <summary>
             广告列表
-            </summary>
-        </member>
-        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAdsData.msgExt">
-            <summary>
-            附加信息，C，如更新状态不为0则返回更新描述
-            </summary>
-        </member>
-        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAdsData.misc">
-            <summary>
-            自定义保留域，R
             </summary>
         </member>
         <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAdsData.respCode">

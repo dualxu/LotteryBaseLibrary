@@ -117,6 +117,11 @@ namespace LotteryBaseLib.TerminalIf
         /// </summary>
         public string version { get; set; }
         /// <summary>
+        /// 登录后返回的SESSIONID,C
+        /// 保留动态密钥，暂时无用
+        /// </summary>
+        public string sessionKey { get; set; }
+        /// <summary>
         /// 终端类型
         /// </summary>
         public string terminalCode { get; set; }
@@ -263,6 +268,10 @@ namespace LotteryBaseLib.TerminalIf
         /// 订单编号
         /// </summary>
         public string merOrderId { get; set; }
+        /// <summary>
+        /// 订单时间,YYYYMMDDHHmmss
+        /// </summary>
+        public string merOrderTime { get; set; }
         /// <summary>
         /// 订单总金额，单位分
         /// </summary>
@@ -1172,10 +1181,6 @@ namespace LotteryBaseLib.TerminalIf
         /// 终端编号
         /// </summary>
         public string terminalId { get; set; }
-        /// <summary>
-        /// 自定义保留域，C
-        /// </summary>
-        public string misc { get; set; }
     }
 
     /// <summary>
@@ -1271,14 +1276,6 @@ namespace LotteryBaseLib.TerminalIf
         /// 广告列表
         /// </summary>
         public List<QueryAdsLotteryDtosItem> adsList { get; set; }
-        /// <summary>
-        /// 附加信息，C，如更新状态不为0则返回更新描述
-        /// </summary>
-        public string msgExt { get; set; }
-        /// <summary>
-        /// 自定义保留域，R
-        /// </summary>
-        public string misc { get; set; }
         /// <summary>
         /// 应答码
         /// </summary>

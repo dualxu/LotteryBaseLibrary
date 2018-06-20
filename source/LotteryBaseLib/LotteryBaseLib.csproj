@@ -70,6 +70,7 @@
     <Compile Include="LotteryBaseLib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scanner\Scanner.cs" />
+    <Compile Include="TerminalIf\AdsDownloader.cs" />
     <Compile Include="TerminalIf\JsonTools.cs" />
     <Compile Include="TerminalIf\SHA1WithRSA.cs" />
     <Compile Include="TerminalIf\TerminalClass.cs" />

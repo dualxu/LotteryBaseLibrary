@@ -80,12 +80,15 @@ namespace LotteryBaseLibTest
                     Console.WriteLine(JsonTools.ObjectToJson(tireq));
 
                     tirsp = TerminalIf.TerminalInit(tireq);
-                    if (tirsp.responseData.terminalLotteryDtos != null)
+                    if((tirsp != null)&&(tirsp.responseData != null))
                     {
-                        if (initDtosItems != null) initDtosItems.Clear();
-                        foreach(TerminalInitLotteryDtosItem dtos in tirsp.responseData.terminalLotteryDtos)
+                        if (tirsp.responseData.terminalLotteryDtos != null)
                         {
-                            initDtosItems.Add(dtos);
+                            if (initDtosItems != null) initDtosItems.Clear();                           
+                            foreach (TerminalInitLotteryDtosItem dtos in tirsp.responseData.terminalLotteryDtos)
+                            {
+                                initDtosItems.Add(dtos);
+                            }
                         }
                     }
                     Console.WriteLine(JsonTools.ObjectToJson(tirsp));
@@ -98,6 +101,7 @@ namespace LotteryBaseLibTest
                     RequestPrepOrderData rpod = new RequestPrepOrderData();
                     rpod.application = "prepOrder.Req";
                     rpod.merOrderId = OrderId.ToString();
+                    rpod.merOrderTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                     rpod.misc = "";
                     rpod.notifyUrl = "";                    
                     rpod.payType = "01";
@@ -120,6 +124,7 @@ namespace LotteryBaseLibTest
                         //
                         items.Add(item);
                         lotteryAmt += lotteryNum * Convert.ToInt16(dtos.lotteryAmt);
+                        item = new TerminalPrepOrderLotteryDtosItem();
                     }
                     rpod.orderAmt = lotteryAmt.ToString();
                     rpod.terminalLotteryDtos = items;
@@ -171,6 +176,8 @@ namespace LotteryBaseLibTest
                         otitem.boxId = dtos.boxId;
                         otitem.ticketStatus = "1";
                         otitems.Add(otitem);
+                        //
+                        otitem = new OutTicketLotteryDtosItem();
                     }
                     rotd.terminalLotteryDtos = otitems;
                     otreq.requestData = rotd;                    
@@ -246,6 +253,7 @@ namespace LotteryBaseLibTest
                     TerminalUpdateRsp tursp = new TerminalUpdateRsp();
                     RequestTerminalUpdateData rtud = new RequestTerminalUpdateData();
                     rtud.application = "terminalUpdate.Req";
+                    rtud.boxStatus = "";
                     foreach (TerminalInitLotteryDtosItem dtos in initDtosItems)
                     {
                         if (rtud.boxStatus == "" || rtud.boxStatus == null)
@@ -279,7 +287,6 @@ namespace LotteryBaseLibTest
                     QueryAdsRsp qarsp = new QueryAdsRsp();
                     RequestQueryAdsData rqad = new RequestQueryAdsData();
                     rqad.application = "queryAds.Req";
-                    rqad.misc = "";
                     rqad.sendIp = "";
                     rqad.sendMark = "";
                     rqad.sendTime = DateTime.Now.ToString("yyyyMMddHHmmss");
