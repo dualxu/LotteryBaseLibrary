@@ -14,4 +14,3 @@ D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\NLo
 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\LotteryBaseLib.XML
 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\AxZT_SCANNERSE2102Lib.dll
 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\bin\Debug\ZT_SCANNERSE2102Lib.dll
-D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLib\obj\Debug\LotteryBaseLib.csprojResolveAssemblyReference.cache

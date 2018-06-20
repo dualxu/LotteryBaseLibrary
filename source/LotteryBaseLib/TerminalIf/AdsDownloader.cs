@@ -23,7 +23,7 @@ namespace LotteryBaseLib.TerminalIf
         /// <param name="savePath">图片保存路径</param>
         /// <param name="timeOut">Request最大请求时间，如果为-1则无限制</param>
         /// <returns></returns>
-        public static bool DownloadPicture(string picUrl, string savePath, int timeOut)
+        private static bool DownloadPicture(string picUrl, string savePath, int timeOut)
         {
             bool value = false;
             WebResponse response = null;
@@ -83,11 +83,42 @@ namespace LotteryBaseLib.TerminalIf
         }
 
         /// <summary>
+        /// 广告图片下载并更新配置文件
+        /// </summary>
+        /// <param name="adsList">广告列表</param>
+        /// <param name="SavePath">默认当前目录adsDownloadDir</param>
+        /// <returns></returns>
+        public static bool AdsDownload(List<QueryAdsLotteryDtosItem> adsList, string SavePath)
+        {
+            try
+            {
+                if (adsList != null)
+                {
+                    if (adsList.Count > 0)
+                    {
+                        foreach (QueryAdsLotteryDtosItem ads in adsList)
+                        {
+                            AdsDownloader.DownloadPicture(ads.filePath, SavePath, 60000);
+                        }
+                        AdsDownloader.UpdateAdsDownloadConfig(adsList);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                PublicLib.logger.Error("AdsDownloader->AdsDownload:" + ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// 更新广告查询结果XML配置文件
         /// </summary>
         /// <param name="adslist"></param>
         /// <returns></returns>
-        public static bool UpdateAdsDownloadConfig(List<QueryAdsLotteryDtosItem> adslist)
+        private static bool UpdateAdsDownloadConfig(List<QueryAdsLotteryDtosItem> adslist)
         {
             try
             {

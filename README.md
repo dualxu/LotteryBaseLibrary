@@ -213,6 +213,17 @@ CashPrize和TiCaiCut,ZT_ScannerSE2102接口需先在系统下使用regsvr32.exe�
     }
 </code></pre>
 
+**广告图片视频下载接口**
+<pre><code>
+        /// <summary>
+        /// 广告图片下载并更新配置文件
+        /// </summary>
+        /// <param name="adsList"></param>
+        /// <param name="SavePath"></param>
+        /// <returns></returns>
+        public static bool AdsDownload(List<QueryAdsLotteryDtosItem> adsList, string SavePath);
+</code></pre>
+
 **切纸器设备接口：TiCaiCut**
 ---
 

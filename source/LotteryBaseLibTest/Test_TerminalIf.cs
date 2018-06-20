@@ -299,6 +299,17 @@ namespace LotteryBaseLibTest
                     Console.WriteLine(JsonTools.ObjectToJson(qareq));
                     qarsp = TerminalIf.QueryAds(qareq);
                     Console.WriteLine(JsonTools.ObjectToJson(qarsp));
+                    //广告图片下载/更新配置文件
+                    if (qarsp.responseData != null)
+                    {
+                        if (qarsp.responseData.adsList != null)
+                        {
+                            if (qarsp.responseData.adsList.Count > 0)
+                            {
+                                AdsDownloader.AdsDownload(qarsp.responseData.adsList, ".\\adsDownloadDir");
+                            }
+                        }
+                    }
                     //
                     break;               
                 case "0":
