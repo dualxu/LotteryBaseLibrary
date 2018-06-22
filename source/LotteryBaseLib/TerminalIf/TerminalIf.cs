@@ -432,7 +432,7 @@ namespace LotteryBaseLib.TerminalIf
                 var request = new RestRequest("/gateway/front/", Method.POST);
 
                 string message = "";
-                AwardOrderRsp awardadsrsp = new AwardOrderRsp();
+                AwardOrderRsp awardorderrsp = new AwardOrderRsp();
 
                 if (numRetry <= 0)
                 {
@@ -464,18 +464,18 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        awardadsrsp.respCode = "9999";
-                        awardadsrsp.respDesc = "派奖数据签名验证失败";
-                        return awardadsrsp;
+                        awardorderrsp.respCode = "9999";
+                        awardorderrsp.respDesc = "派奖数据签名验证失败";
+                        return awardorderrsp;
                     }
                     //解析Response
-                    awardadsrsp = (AwardOrderRsp)JsonTools.JsonToObject(response.Content, awardadsrsp);
+                    awardorderrsp = (AwardOrderRsp)JsonTools.JsonToObject(response.Content, awardorderrsp);
 
-                    if ((awardadsrsp.respCode == "") || (awardadsrsp.respCode == null))
+                    if ((awardorderrsp.respCode == "") || (awardorderrsp.respCode == null))
                     {
-                        awardadsrsp.respCode = response.StatusCode.ToString();
+                        awardorderrsp.respCode = response.StatusCode.ToString();
                     }
-                    return awardadsrsp;
+                    return awardorderrsp;
                 }
                 else
                 {
@@ -623,6 +623,73 @@ namespace LotteryBaseLib.TerminalIf
         }
         #endregion
 
+        #region 9.	彩金下单
+        private ContinueOrderRsp _ContinueOrder(ContinueOrderReq continueorderreq, int numRetry)
+        {
+            try
+            {
+                var request = new RestRequest("/gateway/front/", Method.POST);
+
+                string message = "";
+                ContinueOrderRsp continueorderrsp = new ContinueOrderRsp();
+
+                if (numRetry <= 0)
+                {
+                    return null;
+                }
+
+                message = JsonTools.ObjectToJson(continueorderreq);
+
+                Console.WriteLine("请求:" + message);
+
+                request.AddParameter("application/json", message, ParameterType.RequestBody);
+                var response = Execute<PostCreated>(request);
+                PublicLib.logger.Error("StatusCode: " + response.StatusCode.ToString());
+                if ((int)response.StatusCode == 401 || _bearerHeader == "")
+                {
+                    //GetToken();
+                    return this._ContinueOrder(continueorderreq, numRetry - 1);
+                }
+                else if ((int)response.StatusCode == 201 || (int)response.StatusCode == 200)
+                {
+                    //验签
+                    PublicLib.logger.Info("\n应答:" + response.Content);
+                    string toSignData = JsonTools.GetDedicatedKeyFromJson(response.Content, "responseData");
+                    PublicLib.logger.Info("\n待验签数据:" + toSignData);
+                    string signStr = JsonTools.GetDedicatedKeyFromJson(response.Content, "sign");
+                    PublicLib.logger.Info("签名:" + signStr);
+                    PublicLib.logger.Info("公钥:" + PublicLib.publicky);
+                    bool ret = SHA1WithRSA.verify(toSignData, signStr, PublicLib.publicky, "UTF-8");
+                    PublicLib.logger.Info("签名验证:" + ret);
+                    if (ret == false)
+                    {
+                        continueorderrsp.respCode = "9999";
+                        continueorderrsp.respDesc = "派奖数据签名验证失败";
+                        return continueorderrsp;
+                    }
+                    //解析Response
+                    continueorderrsp = (ContinueOrderRsp)JsonTools.JsonToObject(response.Content, continueorderrsp);
+
+                    if ((continueorderrsp.respCode == "") || (continueorderrsp.respCode == null))
+                    {
+                        continueorderrsp.respCode = response.StatusCode.ToString();
+                    }
+                    return continueorderrsp;
+                }
+                else
+                {
+                    return this._ContinueOrder(continueorderreq, numRetry - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                PublicLib.logger.Error("_ContinueOrder: " + ex.Message);
+                return null;
+            }
+        }
+        #endregion
+
+
         #region Interface
         //1.	初始化
         TerminalInitRsp ITerminalIfHandler.TerminalInit(TerminalInitReq terminalinitreq)
@@ -685,6 +752,14 @@ namespace LotteryBaseLib.TerminalIf
         {
 
             return this._QueryAds(queryadsreq, this._maxRetry);
+
+        }
+
+        //9.	彩金下单
+        ContinueOrderRsp ITerminalIfHandler.ContinueOrder(ContinueOrderReq continueorderreq)
+        {
+
+            return this._ContinueOrder(continueorderreq, this._maxRetry);
 
         }
         #endregion
@@ -1205,6 +1280,57 @@ namespace LotteryBaseLib.TerminalIf
             }
         }
         #endregion
+
+        #region 9.	彩金下单
+        /// <summary>
+        /// 彩金下单
+        /// </summary>
+        /// <param name="continueorderreq">彩金下单请求</param>
+        /// <returns></returns>
+        public static ContinueOrderRsp ContinueOrder(ContinueOrderReq continueorderreq)
+        {
+            try
+            {
+                Init();
+                //
+                continueorderreq.sign = SHA1WithRSA.sign(JsonTools.ObjectToJson(continueorderreq.requestData), PublicLib.privatekey, "UTF-8");
+                #region
+                if (DebugFlag)
+                {
+                    string str = JsonTools.ObjectToJson(continueorderreq);
+                    PublicLib.logger.Info("调用:彩金下单:");
+                    PublicLib.logger.Info(str);
+                }
+
+                ContinueOrderRsp rsp = iTerminalIfHandler.ContinueOrder(continueorderreq);
+                //
+                if (rsp == null)
+                {
+                    PublicLib.logger.Info("Err:TerminalIf 彩金下单 失败 ");
+                    return null;
+                }
+                else
+                {
+                    if (DebugFlag)
+                    {
+                        PublicLib.logger.Info("OK:TerminalIf 彩金下单 成功");
+                        string str = JsonTools.ObjectToJson(rsp);
+                        PublicLib.logger.Info("返回:彩金下单:");
+                        PublicLib.logger.Info(str);
+                    }
+                    return rsp;
+                }
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                PublicLib.logger.Error("TerminalIf.ContinueOrder: ex: " + ex.Message);
+                return null;
+            }
+        }
+        #endregion
+
     }
 }
 

@@ -21,7 +21,7 @@
   <!--   -->
   <adsconfig>
     <ads count="2" />
-    <ads001 adsId="100" adsKind="1" adsName="shangpin1" beginDate="20180610" downloadMode="1" endDate="20180710" filePath="2014-bmw-328i-1511714547.jpg" fileSize="3962569" playSeq="1" playTime="5" />
-    <ads002 adsId="101" adsKind="3" adsName="xiapin1" beginDate="20180610" downloadMode="1" endDate="20180710" filePath="DSC02122.jpg" fileSize="443021" playSeq="1" playTime="5" />
+    <ads001 adsId="102" adsKind="1" adsType="2" adsName="xiapin2" beginDate="20180610" downloadMode="1" endDate="20180710" filePath="4K-a.mp4" fileSize="71722598" playSeq="1" playTime="5" />
+    <ads002 adsId="101" adsKind="3" adsType="1" adsName="xiapin1" beginDate="20180610" downloadMode="1" endDate="20180710" filePath="DSC02122.jpg" fileSize="443021" playSeq="1" playTime="5" />
   </adsconfig>
 </root>

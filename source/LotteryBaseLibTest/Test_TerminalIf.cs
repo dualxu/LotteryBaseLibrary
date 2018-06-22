@@ -42,7 +42,8 @@ namespace LotteryBaseLibTest
             Console.WriteLine("7.终端兑奖");
             Console.WriteLine("8.派奖");
             Console.WriteLine("9.终端状态同步");
-            Console.WriteLine("a.广告查询");
+            Console.WriteLine("11.广告查询");
+            Console.WriteLine("12.彩金下单");
             Console.WriteLine("0.退出");
             Console.WriteLine("----------------------------------");
 
@@ -194,7 +195,7 @@ namespace LotteryBaseLibTest
                     rcpd.application = "cashPrize.Req";
                     rcpd.awardStatus = "";
                     rcpd.cashType = "0";
-                    Console.WriteLine("请输入彩票序列号:");
+                    Console.WriteLine("请输入彩票序列号(多张以,分隔):");
                     string lotteryno = Console.ReadLine();
                     if (lotteryno == "") lotteryno = "3603790001554250012285104303358";
                     rcpd.lotteryNo = lotteryno;
@@ -222,7 +223,7 @@ namespace LotteryBaseLibTest
                     AwardOrderRsp aorsp = new AwardOrderRsp();
                     RequestAwardOrderData raod = new RequestAwardOrderData();
                     raod.application = "awardOrder.Req";
-                    Console.WriteLine("请输入彩票序列号:");
+                    Console.WriteLine("请输入彩票序列号(多张以,分隔):");
                     lotteryno = Console.ReadLine();
                     if (lotteryno == "") lotteryno = "3603790001554250012285104303358";
                     raod.lotteryNo = lotteryno;
@@ -282,7 +283,7 @@ namespace LotteryBaseLibTest
                     Console.WriteLine(JsonTools.ObjectToJson(tursp));
                     //
                     break;
-                case "a":
+                case "11":
                     QueryAdsReq qareq = new QueryAdsReq();
                     QueryAdsRsp qarsp = new QueryAdsRsp();
                     RequestQueryAdsData rqad = new RequestQueryAdsData();
@@ -300,6 +301,7 @@ namespace LotteryBaseLibTest
                     qarsp = TerminalIf.QueryAds(qareq);
                     Console.WriteLine(JsonTools.ObjectToJson(qarsp));
                     //广告图片下载/更新配置文件
+                    Console.WriteLine("广告图片下载/更新配置文件:");
                     if (qarsp.responseData != null)
                     {
                         if (qarsp.responseData.adsList != null)
@@ -311,7 +313,66 @@ namespace LotteryBaseLibTest
                         }
                     }
                     //
-                    break;               
+                    break;
+                case "12":
+                    ContinueOrderReq coreq = new ContinueOrderReq();
+                    ContinueOrderRsp corsp = new ContinueOrderRsp();
+                    RequestContinueOrderData rcod = new RequestContinueOrderData();
+                    rcod.application = "continueOrder.Req";
+                    rcod.merOrderId = OrderId.ToString();
+                    rcod.misc = "";
+                    rcod.sendIp = "";
+                    rcod.sendMark = "";
+                    rcod.sendTime = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    rcod.terminalCode = "0001";
+                    rcod.terminalId = "10000";
+                    rcod.version = "1.0.0";
+                    Console.WriteLine("请输入彩票序列号(多张以,分隔):");
+                    lotteryno = Console.ReadLine();
+                    if (lotteryno == "") lotteryno = "3603790001554250012285104303358";
+                    rcod.lotteryNo = lotteryno;
+                    rcod.merOrderTime = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    rcod.notifyUrl = "";
+                    Console.WriteLine("请输入支付方式(1-支付宝,2-微信):");
+                    paytype = Console.ReadLine();
+                    if (paytype == "1") paytype = "01";
+                    else paytype = "02";
+                    rcod.payType = paytype;
+                    //
+                    List<ContinueOrderLotteryDtosItem> coitems = new List<ContinueOrderLotteryDtosItem>();
+                    ContinueOrderLotteryDtosItem coitem = new ContinueOrderLotteryDtosItem();                    
+                    lotteryNum = 1;//彩票张数
+                    lotteryAmt = 0;//彩票金额                    
+                    foreach (TerminalInitLotteryDtosItem dtos in initDtosItems)
+                    {
+                        coitem.boxId = dtos.boxId;
+                        coitem.lotteryAmt = dtos.lotteryAmt;
+                        coitem.lotteryId = dtos.lotteryId;
+                        Console.WriteLine("当前票箱ID:"+dtos.boxId+",票种单价:"+dtos.lotteryAmt);
+                        Console.WriteLine("请输入购买张数(不需要购买直接回车):");
+                        string lotteryNumStr = Console.ReadLine();
+                        if (lotteryNumStr == "")
+                        {
+                            item = new TerminalPrepOrderLotteryDtosItem();
+                            continue;
+                        }
+                        short Num;
+                        Int16.TryParse(lotteryNumStr, out Num);
+                        coitem.num = Num.ToString();
+                        //
+                        coitems.Add(coitem);
+                        lotteryAmt += Num * Convert.ToInt16(dtos.lotteryAmt);
+                        coitem = new ContinueOrderLotteryDtosItem();
+                    }
+                    rcod.orderAmt = lotteryAmt.ToString();
+                    rcod.terminalLotteryDtos = coitems;
+                    coreq.requestData = rcod;
+                    //
+                    Console.WriteLine(JsonTools.ObjectToJson(coreq));
+                    corsp = TerminalIf.ContinueOrder(coreq);
+                    Console.WriteLine(JsonTools.ObjectToJson(corsp));
+                    //
+                    break;
                 case "0":
                     goto label_exit;
                 default:

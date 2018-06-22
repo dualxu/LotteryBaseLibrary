@@ -1212,9 +1212,13 @@ namespace LotteryBaseLib.TerminalIf
         /// </summary>
         public string adsName { get; set; }
         /// <summary>
-        /// 广告类别
+        /// 广告类别，1上屏；2中屏；3下屏；4屏保
         /// </summary>
         public string adsKind { get; set; }
+        /// <summary>
+        /// 广告类型，1图片，2视频
+        /// </summary>
+        public string adsType { get; set; }
         /// <summary>
         /// 文件路径
         /// </summary>
@@ -1309,4 +1313,197 @@ namespace LotteryBaseLib.TerminalIf
         public string respDesc { get; set; }
     }
     #endregion
+
+    #region 彩金下单
+    /// <summary>
+    /// 彩金下单请求数据
+    /// </summary>
+    public class RequestContinueOrderData
+    {
+        /// <summary>
+        /// 应用名称，continueOrder.Req
+        /// </summary>
+        public string application { get; set; }
+        /// <summary>
+        /// 发送时间，发送报文的时间，格式为：YYYYMMDDhhmmss
+        /// </summary>
+        public string sendTime { get; set; }
+        /// <summary>
+        /// 接口版本号，默认1.0
+        /// </summary>
+        public string version { get; set; }
+        /// <summary>
+        /// 请求IP,C
+        /// </summary>
+        public string sendIp { get; set; }
+        /// <summary>
+        /// 请求坐标，C
+        /// </summary>
+        public string sendMark { get; set; }
+        /// <summary>
+        /// 终端类型，C，0001 振通设备 0002 小设备
+        /// </summary>
+        public string terminalCode { get; set; }
+        /// <summary>
+        /// 终端编号，C
+        /// </summary>
+        public string terminalId { get; set; }
+        /// <summary>
+        /// 订单编号
+        /// </summary>
+        public string merOrderId { get; set; }
+        /// <summary>
+        /// 订单时间，YYYYMMDDHHmmss
+        /// </summary>
+        public string merOrderTime { get; set; }
+        /// <summary>
+        /// 订单总金额
+        /// </summary>
+        public string orderAmt { get; set; }
+        /// <summary>
+        /// 彩金下单票箱数据列表
+        /// </summary>
+        public List<ContinueOrderLotteryDtosItem> terminalLotteryDtos { get; set; }
+        /// <summary>
+        /// 支付类型，如奖金剩余需要派奖，则为派奖方式；如奖金不足则为支付方式；
+        //  01 支付宝
+        //  02 微信
+        //  03 微信公众号支付
+        /// </summary>
+        public string payType { get; set; }
+        /// <summary>
+        /// 中奖彩票序列号，多张以,分隔
+        /// </summary>
+        public string lotteryNo { get; set; }
+        /// <summary>
+        /// 通知地址，C
+        /// </summary>
+        public string notifyUrl { get; set; }
+        /// <summary>
+        /// 自定义保留域，C
+        /// </summary>
+        public string misc { get; set; }
+    }
+
+    /// <summary>
+    /// 彩金下单票箱数据
+    /// </summary>
+    public class ContinueOrderLotteryDtosItem
+    {
+        /// <summary>
+        /// 票箱ID
+        /// </summary>
+        public string boxId { get; set; }
+        /// <summary>
+        /// 彩种
+        /// </summary>
+        public string lotteryId { get; set; }
+        /// <summary>
+        /// 张数
+        /// </summary>
+        public string num { get; set; }
+        /// <summary>
+        /// 单价
+        /// </summary>
+        public string lotteryAmt { get; set; }
+    }
+
+    /// <summary>
+    /// 彩金下单请求
+    /// </summary>
+    public class ContinueOrderReq
+    {
+        /// <summary>
+        /// 签名
+        /// </summary>
+        public string sign { get; set; }
+        /// <summary>
+        /// 彩金下单请求数据
+        /// </summary>
+        public RequestContinueOrderData requestData { get; set; }
+    }
+
+    /// <summary>
+    /// 彩金下单应答数据
+    /// </summary>
+    public class ResponseContinueOrderData
+    {
+        /// <summary>
+        /// 应用名称,continueOrder.Rsp
+        /// </summary>
+        public string application { get; set; }
+        /// <summary>
+        /// 发送时间,R,发送报文的时间，格式为：YYYYMMDDhhmmss
+        /// </summary>
+        public string sendTime { get; set; }
+        /// <summary>
+        /// 接口版本号，R，默认1.0
+        /// </summary>
+        public string version { get; set; }
+        /// <summary>
+        /// 终端类型
+        /// </summary>
+        public string terminalCode { get; set; }
+        /// <summary>
+        /// 终端编号，R
+        /// </summary>
+        public string terminalId { get; set; }
+        /// <summary>
+        /// 订单编号，R
+        /// </summary>
+        public string merOrderId { get; set; }
+        /// <summary>
+        /// 派奖金额，C，单位分
+        /// </summary>
+        public string awardAmt { get; set; }
+        /// <summary>
+        /// 支付信息，C，如奖金不足需支付，则返回支付二维码；二维码串 应答码00时返回
+        /// </summary>
+        public string qrCode { get; set; }
+        /// <summary>
+        /// 派奖信息，C，如奖金剩余需要派奖，返回派奖二维码
+        /// </summary>
+        public string awardUrl { get; set; }
+        /// <summary>
+        /// 附加信息，C
+        /// </summary>
+        public string msgExt { get; set; }
+        /// <summary>
+        /// 自定义保留域，R
+        /// </summary>
+        public string misc { get; set; }
+        /// <summary>
+        /// 应答码
+        /// </summary>
+        public string respCode { get; set; }
+        /// <summary>
+        /// 应答码描述
+        /// </summary>
+        public string respDesc { get; set; }
+    }
+
+    /// <summary>
+    /// 彩金下单应答
+    /// </summary>
+    public class ContinueOrderRsp
+    {
+        /// <summary>
+        /// 彩金下单应答数据
+        /// </summary>
+        public ResponseContinueOrderData responseData { get; set; }
+        /// <summary>
+        /// 签名
+        /// </summary>
+        public string sign { get; set; }
+        /// <summary>
+        /// 应答码
+        /// </summary>
+        public string respCode { get; set; }
+        /// <summary>
+        /// 应答码描述
+        /// </summary>
+        public string respDesc { get; set; }
+    }
+    #endregion
+
 }

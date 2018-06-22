@@ -66,5 +66,12 @@ namespace LotteryBaseLib.TerminalIf
         /// <param name="terminalinitreq"></param>
         /// <returns></returns>
         QueryAdsRsp QueryAds(QueryAdsReq terminalinitreq);
+
+        /// <summary>
+        /// 彩金下单
+        /// </summary>
+        /// <param name="continueorderreq"></param>
+        /// <returns></returns>
+        ContinueOrderRsp ContinueOrder(ContinueOrderReq continueorderreq);
     }
 }

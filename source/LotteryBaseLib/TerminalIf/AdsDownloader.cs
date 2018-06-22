@@ -60,6 +60,7 @@ namespace LotteryBaseLib.TerminalIf
             try
             {
                 if (File.Exists(savePath)) File.Delete(savePath);
+                DateTime dt1 = DateTime.Now;
                 outStream = System.IO.File.Create(savePath);
                 inStream = response.GetResponseStream();
                 int l;
@@ -68,6 +69,8 @@ namespace LotteryBaseLib.TerminalIf
                     l = inStream.Read(buffer, 0, buffer.Length);
                     if (l > 0) outStream.Write(buffer, 0, l);
                 } while (l > 0);
+                TimeSpan ts = DateTime.Now - dt1;
+                PublicLib.logger.Info("AdsDownloader->SaveBinaryFile:" + savePath + ",download elasped(ms):" + ts.TotalMilliseconds);
                 value = true;
             }
             catch (Exception ex)
@@ -86,7 +89,7 @@ namespace LotteryBaseLib.TerminalIf
         /// 广告图片下载并更新配置文件
         /// </summary>
         /// <param name="adsList">广告列表</param>
-        /// <param name="SavePath">默认当前目录adsDownloadDir</param>
+        /// <param name="SavePath">默认当前目录下adsDownloadDir目录</param>
         /// <returns></returns>
         public static bool AdsDownload(List<QueryAdsLotteryDtosItem> adsList, string SavePath)
         {
@@ -151,6 +154,7 @@ namespace LotteryBaseLib.TerminalIf
                     XmlElement member = t_xml.CreateElement("ads" + number.ToString("D3"));
                     member.SetAttribute("adsId", ads.adsId);
                     member.SetAttribute("adsKind", ads.adsKind);
+                    member.SetAttribute("adsType", ads.adsType);
                     member.SetAttribute("adsName", ads.adsName);
                     member.SetAttribute("beginDate", ads.beginDate);
                     member.SetAttribute("downloadMode", ads.downloadMode);

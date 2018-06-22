@@ -210,6 +210,13 @@ CashPrize和TiCaiCut,ZT_ScannerSE2102接口需先在系统下使用regsvr32.exe�
         /// <param name="terminalinitreq"></param>
         /// <returns></returns>
         QueryAdsRsp QueryAds(QueryAdsReq terminalinitreq);
+
+		/// <summary>
+        /// 彩金下单
+        /// </summary>
+        /// <param name="continueorderreq"></param>
+        /// <returns></returns>
+        ContinueOrderRsp ContinueOrder(ContinueOrderReq continueorderreq);
     }
 </code></pre>
 
