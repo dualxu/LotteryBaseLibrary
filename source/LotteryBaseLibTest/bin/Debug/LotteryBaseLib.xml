@@ -103,6 +103,20 @@
             测试用公钥
             </summary>
         </member>
+        <member name="T:LotteryBaseLib.TerminalIf.qrCode">
+            <summary>
+            二维码生成类
+            </summary>
+        </member>
+        <member name="M:LotteryBaseLib.TerminalIf.qrCode.GenerateQrCode(System.String,System.String,System.Int32)">
+            <summary>
+            生成二维码
+            </summary>
+            <param name="strToEncode">待编码数据字符串</param>
+            <param name="ecclevel">ECC校验等级,L/M/Q/H,默认L</param>
+            <param name="pixelsPerModule">每模块像素值,默认20</param>
+            <returns>返回Bitmap或异常时为null</returns>
+        </member>
         <member name="T:LotteryBaseLib.Scanner.Scanner">
             <summary>
             扫描仪ScannerSE2102类
@@ -970,6 +984,11 @@
             2 出票异常
             </summary>
         </member>
+        <member name="P:LotteryBaseLib.TerminalIf.OutTicketLotteryDtosItem.surplus">
+            <summary>
+            票箱余票
+            </summary>
+        </member>
         <member name="T:LotteryBaseLib.TerminalIf.ResponseOutTicketData">
             <summary>
             出票状态更新应答数据
@@ -1003,6 +1022,11 @@
         <member name="P:LotteryBaseLib.TerminalIf.ResponseOutTicketData.merOrderId">
             <summary>
             订单编号，R
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseOutTicketData.terminalLotteryDtos">
+            <summary>
+            票箱和彩票数据列表
             </summary>
         </member>
         <member name="P:LotteryBaseLib.TerminalIf.ResponseOutTicketData.msgExt">
@@ -1344,6 +1368,23 @@
         <member name="P:LotteryBaseLib.TerminalIf.ResponseAwardOrderData.terminalId">
             <summary>
             终端编号，R
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseAwardOrderData.userId">
+            <summary>
+            用户ID，R,微信openid
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseAwardOrderData.lotteryNo">
+            <summary>
+            彩票序列号，R,多张以，分隔
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseAwardOrderData.payType">
+            <summary>
+            支付类型,R
+            01 支付宝
+            02 微信
             </summary>
         </member>
         <member name="P:LotteryBaseLib.TerminalIf.ResponseAwardOrderData.awardAmt">
@@ -1896,14 +1937,53 @@
             订单编号，R
             </summary>
         </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.merOrderTime">
+            <summary>
+            订单时间，R
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.orderAmt">
+            <summary>
+            订单总金额，R
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.terminalLotteryDtos">
+            <summary>
+            彩金下单票箱列表数据，R
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.payType">
+            <summary>
+            支付类型，R
+            如奖金剩余需要派奖，则为派奖方式；如奖金不足则为支付方式；
+            01 支付宝
+            02 微信
+            03 微信公众号支付
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.lotteryNo">
+            <summary>
+            中奖彩票序列号，R，多张以,分隔
+            </summary>
+        </member>
         <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.awardAmt">
             <summary>
             派奖金额，C，单位分
             </summary>
         </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.awardOrderId">
+            <summary>
+            派奖订单号,C
+            </summary>
+        </member>
         <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.qrCode">
             <summary>
             支付信息，C，如奖金不足需支付，则返回支付二维码；二维码串 应答码00时返回
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.payAmt">
+            <summary>
+            实付金额
             </summary>
         </member>
         <member name="P:LotteryBaseLib.TerminalIf.ResponseContinueOrderData.awardUrl">
@@ -1952,6 +2032,173 @@
             </summary>
         </member>
         <member name="P:LotteryBaseLib.TerminalIf.ContinueOrderRsp.respDesc">
+            <summary>
+            应答码描述
+            </summary>
+        </member>
+        <member name="T:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData">
+            <summary>
+            派奖查询请求数据
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData.application">
+            <summary>
+            应用名称，queryAwardOrder.Req
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData.sendTime">
+            <summary>
+            发送时间，发送报文的时间，格式为：YYYYMMDDhhmmss
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData.version">
+            <summary>
+            接口版本号，默认1.0
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData.sendIp">
+            <summary>
+            请求IP,C
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData.sendMark">
+            <summary>
+            请求坐标，C
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData.terminalCode">
+            <summary>
+            终端类型，0001 振通设备 0002 小设备
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData.terminalId">
+            <summary>
+            终端编号
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData.awardOrderId">
+            <summary>
+            派奖订单号
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.RequestQueryAwardOrderData.misc">
+            <summary>
+            自定义保留域，C
+            </summary>
+        </member>
+        <member name="T:LotteryBaseLib.TerminalIf.QueryAwardOrderReq">
+            <summary>
+            派奖查询请求
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAwardOrderReq.sign">
+            <summary>
+            签名
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAwardOrderReq.requestData">
+            <summary>
+            派奖查询请求数据
+            </summary>
+        </member>
+        <member name="T:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData">
+            <summary>
+            派奖查询应答数据
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.application">
+            <summary>
+            应用名称,queryAwardOrder.Rsp
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.sendTime">
+            <summary>
+            发送时间,R,发送报文的时间，格式为：YYYYMMDDhhmmss
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.version">
+            <summary>
+            接口版本号，R，默认1.0
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.terminalCode">
+            <summary>
+            终端类型
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.terminalId">
+            <summary>
+            终端编号，R
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.awardOrderId">
+            <summary>
+            派奖订单号，R
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.awardAmt">
+            <summary>
+            派奖总金额，分
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.awardStatus">
+            <summary>
+            派奖状态
+            0 未处理
+            1 成功
+            2 失败
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.payType">
+            <summary>
+            派奖类型
+            01 支付宝
+            02 微信
+            03 奖金
+            04 代付
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.msgExt">
+            <summary>
+            附加信息，C
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.misc">
+            <summary>
+            自定义保留域，R
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.respCode">
+            <summary>
+            应答码
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseQueryAwardOrderData.respDesc">
+            <summary>
+            应答码描述
+            </summary>
+        </member>
+        <member name="T:LotteryBaseLib.TerminalIf.QueryAwardOrderRsp">
+            <summary>
+            派奖查询应答
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAwardOrderRsp.responseData">
+            <summary>
+            派奖查询应答数据
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAwardOrderRsp.sign">
+            <summary>
+            签名
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAwardOrderRsp.respCode">
+            <summary>
+            应答码
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAwardOrderRsp.respDesc">
             <summary>
             应答码描述
             </summary>
@@ -2022,21 +2269,28 @@
             <summary>
             终端状态同步
             </summary>
-            <param name="terminalupdatereq"></param>
+            <param name="terminalupdatereq">终端状态同步请求</param>
             <returns></returns>
         </member>
         <member name="M:LotteryBaseLib.TerminalIf.ITerminalIfHandler.QueryAds(LotteryBaseLib.TerminalIf.QueryAdsReq)">
             <summary>
             广告查询
             </summary>
-            <param name="terminalinitreq"></param>
+            <param name="terminalinitreq">广告查询请求</param>
             <returns></returns>
         </member>
         <member name="M:LotteryBaseLib.TerminalIf.ITerminalIfHandler.ContinueOrder(LotteryBaseLib.TerminalIf.ContinueOrderReq)">
             <summary>
             彩金下单
             </summary>
-            <param name="continueorderreq"></param>
+            <param name="continueorderreq">彩金下单请求</param>
+            <returns></returns>
+        </member>
+        <member name="M:LotteryBaseLib.TerminalIf.ITerminalIfHandler.QueryAwardOrder(LotteryBaseLib.TerminalIf.QueryAwardOrderReq)">
+            <summary>
+            派奖查询
+            </summary>
+            <param name="queryawardorderreq">派奖查询请求</param>
             <returns></returns>
         </member>
         <member name="M:LotteryBaseLib.TerminalIf.TerminalIfHandler.#ctor">
@@ -2161,6 +2415,13 @@
             彩金下单
             </summary>
             <param name="continueorderreq">彩金下单请求</param>
+            <returns></returns>
+        </member>
+        <member name="M:LotteryBaseLib.TerminalIf.TerminalIf.QueryAwardOrder(LotteryBaseLib.TerminalIf.QueryAwardOrderReq)">
+            <summary>
+            派奖查询
+            </summary>
+            <param name="queryorderreq">派奖查询请求</param>
             <returns></returns>
         </member>
         <member name="T:LotteryBaseLib.TiCaiCut.TiCaiCut">

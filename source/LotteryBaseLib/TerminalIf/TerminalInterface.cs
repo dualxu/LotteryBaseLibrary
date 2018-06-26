@@ -56,22 +56,29 @@ namespace LotteryBaseLib.TerminalIf
         /// <summary>
         /// 终端状态同步
         /// </summary>
-        /// <param name="terminalupdatereq"></param>
+        /// <param name="terminalupdatereq">终端状态同步请求</param>
         /// <returns></returns>
         TerminalUpdateRsp TerminalUpdate(TerminalUpdateReq terminalupdatereq);
 
         /// <summary>
         /// 广告查询
         /// </summary>
-        /// <param name="terminalinitreq"></param>
+        /// <param name="terminalinitreq">广告查询请求</param>
         /// <returns></returns>
         QueryAdsRsp QueryAds(QueryAdsReq terminalinitreq);
 
         /// <summary>
         /// 彩金下单
         /// </summary>
-        /// <param name="continueorderreq"></param>
+        /// <param name="continueorderreq">彩金下单请求</param>
         /// <returns></returns>
         ContinueOrderRsp ContinueOrder(ContinueOrderReq continueorderreq);
+
+        /// <summary>
+        /// 派奖查询
+        /// </summary>
+        /// <param name="queryawardorderreq">派奖查询请求</param>
+        /// <returns></returns>
+        QueryAwardOrderRsp QueryAwardOrder(QueryAwardOrderReq queryawardorderreq);
     }
 }

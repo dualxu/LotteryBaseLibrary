@@ -1,0 +1,13 @@
+D:\CSharp\控件\ThoughtWorks.QRCode\QRCode\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.Properties.Resources.resources
+D:\CSharp\控件\ThoughtWorks.QRCode\QRCode\QRCodeLib\obj\Debug\QRCodeLib.csproj.GenerateResource.Cache
+D:\CSharp\控件\ThoughtWorks.QRCode\QRCode\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.dll
+D:\CSharp\控件\ThoughtWorks.QRCode\QRCode\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.pdb
+D:\CSharp\控件\ThoughtWorks.QRCode\QRCode\QRCodeLib\ThoughtWorks.QRCode.dll
+D:\CSharp\控件\ThoughtWorks.QRCode\QRCode\QRCodeLib\ThoughtWorks.QRCode.pdb
+D:\CSharp\控件\ThoughtWorks.QRCode\QRCode\QRCodeLib\obj\Debug\QRCodeLib.csprojResolveAssemblyReference.cache
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\reference\QRCode\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.Properties.Resources.resources
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\reference\QRCode\QRCodeLib\obj\Debug\QRCodeLib.csproj.GenerateResource.Cache
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\reference\QRCode\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\reference\QRCode\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.pdb
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\reference\QRCode\QRCodeLib\ThoughtWorks.QRCode.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\reference\QRCode\QRCodeLib\ThoughtWorks.QRCode.pdb

@@ -18,3 +18,5 @@ D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLibTest\bin\Debug
 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLibTest\bin\Debug\Newtonsoft.Json.xml
 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLibTest\bin\Debug\AxZT_SCANNERSE2102Lib.dll
 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLibTest\bin\Debug\ZT_SCANNERSE2102Lib.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLibTest\bin\Debug\QRCoder.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\source\LotteryBaseLibTest\bin\Debug\UnityEngine.dll

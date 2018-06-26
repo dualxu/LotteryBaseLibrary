@@ -689,6 +689,71 @@ namespace LotteryBaseLib.TerminalIf
         }
         #endregion
 
+        #region 10.	派奖查询
+        private QueryAwardOrderRsp _QueryAwardOrder(QueryAwardOrderReq queryawardorderreq, int numRetry)
+        {
+            try
+            {
+                var request = new RestRequest("/gateway/front/", Method.POST);
+
+                string message = "";
+                QueryAwardOrderRsp queryawardorderrsp = new QueryAwardOrderRsp();
+
+                if (numRetry <= 0)
+                {
+                    return null;
+                }
+
+                message = JsonTools.ObjectToJson(queryawardorderreq);
+
+                Console.WriteLine("请求:" + message);
+
+                request.AddParameter("application/json", message, ParameterType.RequestBody);
+                var response = Execute<PostCreated>(request);
+                PublicLib.logger.Error("StatusCode: " + response.StatusCode.ToString());
+                if ((int)response.StatusCode == 401 || _bearerHeader == "")
+                {
+                    //GetToken();
+                    return this._QueryAwardOrder(queryawardorderreq, numRetry - 1);
+                }
+                else if ((int)response.StatusCode == 201 || (int)response.StatusCode == 200)
+                {
+                    //验签
+                    PublicLib.logger.Info("\n应答:" + response.Content);
+                    string toSignData = JsonTools.GetDedicatedKeyFromJson(response.Content, "responseData");
+                    PublicLib.logger.Info("\n待验签数据:" + toSignData);
+                    string signStr = JsonTools.GetDedicatedKeyFromJson(response.Content, "sign");
+                    PublicLib.logger.Info("签名:" + signStr);
+                    PublicLib.logger.Info("公钥:" + PublicLib.publicky);
+                    bool ret = SHA1WithRSA.verify(toSignData, signStr, PublicLib.publicky, "UTF-8");
+                    PublicLib.logger.Info("签名验证:" + ret);
+                    if (ret == false)
+                    {
+                        queryawardorderrsp.respCode = "9999";
+                        queryawardorderrsp.respDesc = "派奖查询数据签名验证失败";
+                        return queryawardorderrsp;
+                    }
+                    //解析Response
+                    queryawardorderrsp = (QueryAwardOrderRsp)JsonTools.JsonToObject(response.Content, queryawardorderrsp);
+
+                    if ((queryawardorderrsp.respCode == "") || (queryawardorderrsp.respCode == null))
+                    {
+                        queryawardorderrsp.respCode = response.StatusCode.ToString();
+                    }
+                    return queryawardorderrsp;
+                }
+                else
+                {
+                    return this._QueryAwardOrder(queryawardorderreq, numRetry - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                PublicLib.logger.Error("_QueryAwardOrder: " + ex.Message);
+                return null;
+            }
+        }
+        #endregion
 
         #region Interface
         //1.	初始化
@@ -760,6 +825,14 @@ namespace LotteryBaseLib.TerminalIf
         {
 
             return this._ContinueOrder(continueorderreq, this._maxRetry);
+
+        }
+
+        //10.	派奖查询
+        QueryAwardOrderRsp ITerminalIfHandler.QueryAwardOrder(QueryAwardOrderReq queryawardorderreq)
+        {
+
+            return this._QueryAwardOrder(queryawardorderreq, this._maxRetry);
 
         }
         #endregion
@@ -1326,6 +1399,56 @@ namespace LotteryBaseLib.TerminalIf
             catch (Exception ex)
             {
                 PublicLib.logger.Error("TerminalIf.ContinueOrder: ex: " + ex.Message);
+                return null;
+            }
+        }
+        #endregion
+
+        #region 10.	派奖查询
+        /// <summary>
+        /// 派奖查询
+        /// </summary>
+        /// <param name="queryorderreq">派奖查询请求</param>
+        /// <returns></returns>
+        public static QueryAwardOrderRsp QueryAwardOrder(QueryAwardOrderReq queryawardorderreq)
+        {
+            try
+            {
+                Init();
+                //
+                queryawardorderreq.sign = SHA1WithRSA.sign(JsonTools.ObjectToJson(queryawardorderreq.requestData), PublicLib.privatekey, "UTF-8");
+                #region
+                if (DebugFlag)
+                {
+                    string str = JsonTools.ObjectToJson(queryawardorderreq);
+                    PublicLib.logger.Info("调用:派奖查询:");
+                    PublicLib.logger.Info(str);
+                }
+
+                QueryAwardOrderRsp rsp = iTerminalIfHandler.QueryAwardOrder(queryawardorderreq);
+                //
+                if (rsp == null)
+                {
+                    PublicLib.logger.Info("Err:TerminalIf 派奖查询 失败 ");
+                    return null;
+                }
+                else
+                {
+                    if (DebugFlag)
+                    {
+                        PublicLib.logger.Info("OK:TerminalIf 派奖查询 成功");
+                        string str = JsonTools.ObjectToJson(rsp);
+                        PublicLib.logger.Info("返回:派奖查询:");
+                        PublicLib.logger.Info(str);
+                    }
+                    return rsp;
+                }
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                PublicLib.logger.Error("TerminalIf.QueryAwardOrder: ex: " + ex.Message);
                 return null;
             }
         }

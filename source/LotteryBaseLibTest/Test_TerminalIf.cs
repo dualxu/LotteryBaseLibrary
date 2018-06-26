@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
+using System.Drawing.Imaging;
+using Size = System.Drawing.Size;
 
 using System.Threading;
 using LotteryBaseLib.TerminalIf;
@@ -25,9 +28,6 @@ namespace LotteryBaseLibTest
             string data2sign = "";
             string signeddata = "";
             //
-            Random rd = new Random();
-            int OrderId = rd.Next(1, 100000);
-            //
             List<TerminalInitLotteryDtosItem> initDtosItems = new List<TerminalInitLotteryDtosItem>();
             //
             label_menu:
@@ -44,6 +44,8 @@ namespace LotteryBaseLibTest
             Console.WriteLine("9.终端状态同步");
             Console.WriteLine("11.广告查询");
             Console.WriteLine("12.彩金下单");
+            Console.WriteLine("13.派奖查询");
+            Console.WriteLine("14.二维码生成");
             Console.WriteLine("0.退出");
             Console.WriteLine("----------------------------------");
 
@@ -100,31 +102,45 @@ namespace LotteryBaseLibTest
                     PrepOrderRsp porsp = new PrepOrderRsp();
                     PrepOrderReq poreq = new PrepOrderReq();
                     RequestPrepOrderData rpod = new RequestPrepOrderData();
-                    rpod.application = "prepOrder.Req";
-                    rpod.merOrderId = OrderId.ToString();
+                    rpod.application = "prepOrder.Req";                    
                     rpod.merOrderTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                     rpod.misc = "";
-                    rpod.notifyUrl = "";                    
-                    rpod.payType = "01";
+                    rpod.notifyUrl = "";
+                    Console.WriteLine("请输入支付类型(1-支付宝(default),2-微信,3-微信公众号):");
+                    string strPayType = Console.ReadLine();
+                    if (strPayType == "2") rpod.payType = "02";
+                    else if (strPayType == "3") rpod.payType = "03";
+                    else rpod.payType = "01";
                     rpod.sendIp = "";
                     rpod.sendMark = "";
                     rpod.sendTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                     rpod.terminalCode = "0001";
                     rpod.terminalId = "10000";                    
                     rpod.version = "1.0.0";
+                    rpod.merOrderId = rpod.terminalId + DateTime.Now.ToString("yyyyMMddHHmmss");
+
                     List<TerminalPrepOrderLotteryDtosItem> items = new List<TerminalPrepOrderLotteryDtosItem>();
                     TerminalPrepOrderLotteryDtosItem item = new TerminalPrepOrderLotteryDtosItem();
-                    int lotteryNum = 2;//彩票张数
                     int lotteryAmt = 0;//彩票金额
                     foreach (TerminalInitLotteryDtosItem dtos in initDtosItems)
                     {
                         item.boxId = dtos.boxId;
                         item.lotteryAmt = dtos.lotteryAmt;
                         item.lotteryId = dtos.lotteryId;
-                        item.num = lotteryNum.ToString();
+                        Console.WriteLine("当前票箱ID:" + dtos.boxId + ",票种单价:" + dtos.lotteryAmt);
+                        Console.WriteLine("请输入购买张数(不需要购买直接回车):");
+                        string lotteryNumStr = Console.ReadLine();
+                        if (lotteryNumStr == "" || lotteryNumStr == "0")
+                        {
+                            item = new TerminalPrepOrderLotteryDtosItem();
+                            continue;
+                        }
+                        short Num = 0;
+                        Int16.TryParse(lotteryNumStr, out Num);
+                        item.num = Num.ToString();
                         //
                         items.Add(item);
-                        lotteryAmt += lotteryNum * Convert.ToInt16(dtos.lotteryAmt);
+                        lotteryAmt += Num * Convert.ToInt16(dtos.lotteryAmt);
                         item = new TerminalPrepOrderLotteryDtosItem();
                     }
                     rpod.orderAmt = lotteryAmt.ToString();
@@ -148,7 +164,9 @@ namespace LotteryBaseLibTest
                     rqod.terminalCode = "0001";
                     rqod.terminalId = "10000";
                     rqod.version = "1.0.0";
-                    rqod.merOrderId = OrderId.ToString();
+                    Console.WriteLine("请输入交易订单号:");
+                    string merOrderId = Console.ReadLine();
+                    rqod.merOrderId = merOrderId;
                     
                     qoreq.requestData = rqod;
                     //
@@ -161,8 +179,7 @@ namespace LotteryBaseLibTest
                     OutTicketReq otreq = new OutTicketReq();
                     OutTicketRsp otrsp = new OutTicketRsp();
                     RequestOutTicketData rotd = new RequestOutTicketData();
-                    rotd.application = "outTicket.Req";
-                    rotd.merOrderId = OrderId.ToString();
+                    rotd.application = "outTicket.Req";                    
                     rotd.misc = "";
                     rotd.sendIp = "";
                     rotd.sendMark = "";
@@ -170,12 +187,20 @@ namespace LotteryBaseLibTest
                     rotd.terminalCode = "0001";
                     rotd.terminalId = "10000";                    
                     rotd.version = "1.0.0";
+                    Console.WriteLine("请输入原交易订单号:");
+                    merOrderId = Console.ReadLine();
+                    rotd.merOrderId = merOrderId;
+
                     List<OutTicketLotteryDtosItem> otitems = new List<OutTicketLotteryDtosItem>();
                     OutTicketLotteryDtosItem otitem = new OutTicketLotteryDtosItem();
                     foreach (TerminalInitLotteryDtosItem dtos in initDtosItems)
                     {
                         otitem.boxId = dtos.boxId;
-                        otitem.ticketStatus = "1";
+                        Console.WriteLine("当前票箱【{0}】状态(1-出票成功[default],2 出票异常)",dtos.boxId);
+                        string ticketStatus = Console.ReadLine();
+                        if (ticketStatus == "2") otitem.ticketStatus = "2";
+                        else otitem.ticketStatus = "1";
+                        otitem.surplus = "";
                         otitems.Add(otitem);
                         //
                         otitem = new OutTicketLotteryDtosItem();
@@ -318,8 +343,7 @@ namespace LotteryBaseLibTest
                     ContinueOrderReq coreq = new ContinueOrderReq();
                     ContinueOrderRsp corsp = new ContinueOrderRsp();
                     RequestContinueOrderData rcod = new RequestContinueOrderData();
-                    rcod.application = "continueOrder.Req";
-                    rcod.merOrderId = OrderId.ToString();
+                    rcod.application = "continueOrder.Req";                    
                     rcod.misc = "";
                     rcod.sendIp = "";
                     rcod.sendMark = "";
@@ -327,6 +351,8 @@ namespace LotteryBaseLibTest
                     rcod.terminalCode = "0001";
                     rcod.terminalId = "10000";
                     rcod.version = "1.0.0";
+                    rcod.merOrderId = rcod.terminalId + DateTime.Now.ToString("yyyyMMddHHmmss");
+                    //
                     Console.WriteLine("请输入彩票序列号(多张以,分隔):");
                     lotteryno = Console.ReadLine();
                     if (lotteryno == "") lotteryno = "3603790001554250012285104303358";
@@ -341,7 +367,6 @@ namespace LotteryBaseLibTest
                     //
                     List<ContinueOrderLotteryDtosItem> coitems = new List<ContinueOrderLotteryDtosItem>();
                     ContinueOrderLotteryDtosItem coitem = new ContinueOrderLotteryDtosItem();                    
-                    lotteryNum = 1;//彩票张数
                     lotteryAmt = 0;//彩票金额                    
                     foreach (TerminalInitLotteryDtosItem dtos in initDtosItems)
                     {
@@ -371,6 +396,44 @@ namespace LotteryBaseLibTest
                     Console.WriteLine(JsonTools.ObjectToJson(coreq));
                     corsp = TerminalIf.ContinueOrder(coreq);
                     Console.WriteLine(JsonTools.ObjectToJson(corsp));
+                    //
+                    break;
+                case "13":
+                    QueryAwardOrderReq qaoreq = new QueryAwardOrderReq();
+                    QueryAwardOrderRsp qaorsp = new QueryAwardOrderRsp();
+                    RequestQueryAwardOrderData rqaod = new RequestQueryAwardOrderData();
+                    rqaod.application = "queryAwardOrder.Req";
+                    rqaod.misc = "";
+                    rqaod.sendIp = "";
+                    rqaod.sendMark = "";
+                    rqaod.sendTime = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    rqaod.terminalCode = "0001";
+                    rqaod.terminalId = "10000";
+                    rqaod.version = "1.0.0";
+                    Console.WriteLine("请输入派奖订单号:");
+                    string awardOrderId = Console.ReadLine();
+                    rqaod.awardOrderId = awardOrderId;
+
+                    qaoreq.requestData = rqaod;
+                    //
+                    Console.WriteLine(JsonTools.ObjectToJson(qaoreq));
+                    qaorsp = TerminalIf.QueryAwardOrder(qaoreq);
+                    Console.WriteLine(JsonTools.ObjectToJson(qaorsp));
+                    // 
+                    break;
+                case "14":
+                    Console.WriteLine("请输入生成二维码待编码字符串:");
+                    string strToEncode = Console.ReadLine();
+                    Console.WriteLine("请输入生成二维码每模块像素值(默认20):");
+                    string strPixels = Console.ReadLine();
+                    short intPixels = 20;
+                    Int16.TryParse(strPixels, out intPixels);
+                    //
+                    string ecclevel = "L"; //L,M,Q,H
+                    Bitmap bitmap1 = qrCode.GenerateQrCode(strToEncode, ecclevel, intPixels);
+                    string imgFileName1 = ".\\qrCodeImage\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + intPixels.ToString() + ".jpg";
+                    bitmap1.Save(imgFileName1, ImageFormat.Jpeg);
+                    Console.WriteLine("图片保存为：" + imgFileName1);
                     //
                     break;
                 case "0":

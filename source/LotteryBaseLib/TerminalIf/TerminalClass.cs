@@ -622,6 +622,10 @@ namespace LotteryBaseLib.TerminalIf
         /// 2 出票异常
         /// </summary>
         public string ticketStatus { get; set; }
+        /// <summary>
+        /// 票箱余票
+        /// </summary>
+        public string surplus { get; set; }
     }
 
     /// <summary>
@@ -653,6 +657,10 @@ namespace LotteryBaseLib.TerminalIf
         /// 订单编号，R
         /// </summary>
         public string merOrderId { get; set; }
+        /// <summary>
+        /// 票箱和彩票数据列表
+        /// </summary>
+        public List<OutTicketLotteryDtosItem> terminalLotteryDtos { get; set; }
         /// <summary>
         /// 附加信息，C，如更新状态不为0则返回更新描述
         /// </summary>
@@ -956,6 +964,20 @@ namespace LotteryBaseLib.TerminalIf
         /// 终端编号，R
         /// </summary>
         public string terminalId { get; set; }
+        /// <summary>
+        /// 用户ID，R,微信openid
+        /// </summary>
+        public string userId { get; set; }
+        /// <summary>
+        /// 彩票序列号，R,多张以，分隔
+        /// </summary>
+        public string lotteryNo { get; set; }
+        /// <summary>
+        /// 支付类型,R
+        /// 01 支付宝
+        /// 02 微信
+        /// </summary>
+        public string payType { get; set; }
         /// <summary>
         /// 派奖金额，单位分
         /// </summary>
@@ -1453,13 +1475,45 @@ namespace LotteryBaseLib.TerminalIf
         /// </summary>
         public string merOrderId { get; set; }
         /// <summary>
+        /// 订单时间，R
+        /// </summary>
+        public string merOrderTime { get; set; }
+        /// <summary>
+        /// 订单总金额，R
+        /// </summary>
+        public string orderAmt { get; set; }
+        /// <summary>
+        /// 彩金下单票箱列表数据，R
+        /// </summary>
+        public List<ContinueOrderLotteryDtosItem> terminalLotteryDtos { get; set; }
+        /// <summary>
+        /// 支付类型，R
+        /// 如奖金剩余需要派奖，则为派奖方式；如奖金不足则为支付方式；
+        /// 01 支付宝
+        /// 02 微信
+        /// 03 微信公众号支付
+        /// </summary>
+        public string payType { get; set; }
+        /// <summary>
+        /// 中奖彩票序列号，R，多张以,分隔
+        /// </summary>
+        public string lotteryNo { get; set; }
+        /// <summary>
         /// 派奖金额，C，单位分
         /// </summary>
         public string awardAmt { get; set; }
         /// <summary>
+        /// 派奖订单号,C
+        /// </summary>
+        public string awardOrderId { get; set; }
+        /// <summary>
         /// 支付信息，C，如奖金不足需支付，则返回支付二维码；二维码串 应答码00时返回
         /// </summary>
         public string qrCode { get; set; }
+        /// <summary>
+        /// 实付金额
+        /// </summary>
+        public string payAmt { get; set; }
         /// <summary>
         /// 派奖信息，C，如奖金剩余需要派奖，返回派奖二维码
         /// </summary>
@@ -1506,4 +1560,152 @@ namespace LotteryBaseLib.TerminalIf
     }
     #endregion
 
+    #region 派奖查询
+    /// <summary>
+    /// 派奖查询请求数据
+    /// </summary>
+    public class RequestQueryAwardOrderData
+    {
+        /// <summary>
+        /// 应用名称，queryAwardOrder.Req
+        /// </summary>
+        public string application { get; set; }
+        /// <summary>
+        /// 发送时间，发送报文的时间，格式为：YYYYMMDDhhmmss
+        /// </summary>
+        public string sendTime { get; set; }
+        /// <summary>
+        /// 接口版本号，默认1.0
+        /// </summary>
+        public string version { get; set; }
+        /// <summary>
+        /// 请求IP,C
+        /// </summary>
+        public string sendIp { get; set; }
+        /// <summary>
+        /// 请求坐标，C
+        /// </summary>
+        public string sendMark { get; set; }
+        /// <summary>
+        /// 终端类型，0001 振通设备 0002 小设备
+        /// </summary>
+        public string terminalCode { get; set; }
+        /// <summary>
+        /// 终端编号
+        /// </summary>
+        public string terminalId { get; set; }
+        /// <summary>
+        /// 派奖订单号
+        /// </summary>
+        public string awardOrderId { get; set; }
+        /// <summary>
+        /// 自定义保留域，C
+        /// </summary>
+        public string misc { get; set; }
+    }
+
+    /// <summary>
+    /// 派奖查询请求
+    /// </summary>
+    public class QueryAwardOrderReq
+    {
+        /// <summary>
+        /// 签名
+        /// </summary>
+        public string sign { get; set; }
+        /// <summary>
+        /// 派奖查询请求数据
+        /// </summary>
+        public RequestQueryAwardOrderData requestData { get; set; }
+    }
+
+    /// <summary>
+    /// 派奖查询应答数据
+    /// </summary>
+    public class ResponseQueryAwardOrderData
+    {
+        /// <summary>
+        /// 应用名称,queryAwardOrder.Rsp
+        /// </summary>
+        public string application { get; set; }
+        /// <summary>
+        /// 发送时间,R,发送报文的时间，格式为：YYYYMMDDhhmmss
+        /// </summary>
+        public string sendTime { get; set; }
+        /// <summary>
+        /// 接口版本号，R，默认1.0
+        /// </summary>
+        public string version { get; set; }
+        /// <summary>
+        /// 终端类型
+        /// </summary>
+        public string terminalCode { get; set; }
+        /// <summary>
+        /// 终端编号，R
+        /// </summary>
+        public string terminalId { get; set; }
+        /// <summary>
+        /// 派奖订单号，R
+        /// </summary>
+        public string awardOrderId { get; set; }
+        /// <summary>
+        /// 派奖总金额，分
+        /// </summary>
+        public string awardAmt { get; set; }
+        /// <summary>
+        /// 派奖状态
+        /// 0 未处理
+        /// 1 成功
+        /// 2 失败
+        /// </summary>
+        public string awardStatus { get; set; }
+        /// <summary>
+        /// 派奖类型
+        /// 01 支付宝
+        /// 02 微信
+        /// 03 奖金
+        /// 04 代付
+        /// </summary>
+        public string payType { get; set; }
+        /// <summary>
+        /// 附加信息，C
+        /// </summary>
+        public string msgExt { get; set; }
+        /// <summary>
+        /// 自定义保留域，R
+        /// </summary>
+        public string misc { get; set; }
+        /// <summary>
+        /// 应答码
+        /// </summary>
+        public string respCode { get; set; }
+        /// <summary>
+        /// 应答码描述
+        /// </summary>
+        public string respDesc { get; set; }
+    }
+
+    /// <summary>
+    /// 派奖查询应答
+    /// </summary>
+    public class QueryAwardOrderRsp
+    {
+        /// <summary>
+        /// 派奖查询应答数据
+        /// </summary>
+        public ResponseQueryAwardOrderData responseData { get; set; }
+        /// <summary>
+        /// 签名
+        /// </summary>
+        public string sign { get; set; }
+        /// <summary>
+        /// 应答码
+        /// </summary>
+        public string respCode { get; set; }
+        /// <summary>
+        /// 应答码描述
+        /// </summary>
+        public string respDesc { get; set; }
+    }
+    #endregion
 }
