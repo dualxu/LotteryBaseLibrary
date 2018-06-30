@@ -823,6 +823,31 @@ namespace LotteryBaseLib.TerminalIf
         /// </summary>
         public string lotteryNo { get; set; }
         /// <summary>
+        /// 用户ID，微信 openid
+        /// </summary>
+        public string userId { get; set; }
+        /// <summary>
+        /// 兑奖类型
+        /// 0：扫码
+        /// 1：输入
+        /// </summary>
+        public string cashType { get; set; }
+        /// <summary>
+        /// 中奖状态
+        /// 0 未兑奖
+        /// 1 中奖
+        /// 2 未中奖
+        /// </summary>
+        public string prizeStatus { get; set; }
+        /// <summary>
+        /// 中奖金额,单位分
+        /// </summary>
+        public string prizeAmt { get; set; }
+        /// <summary>
+        /// 派奖状态，C
+        /// </summary>
+        public string awardStatus { get; set; }
+        /// <summary>
         /// 附加信息，C，如更新状态不为0则返回更新描述
         /// </summary>
         public string msgExt { get; set; }
@@ -986,6 +1011,10 @@ namespace LotteryBaseLib.TerminalIf
         /// 派奖二维码，C，请求类型为02终端时返回
         /// </summary>
         public string awardUrl { get; set; }
+        /// <summary>
+        /// 派奖订单号
+        /// </summary>
+        public string awardOrderId { get; set; }
         /// <summary>
         /// 附加信息，C
         /// </summary>

@@ -225,15 +225,15 @@ namespace LotteryBaseLibTest
                     if (lotteryno == "") lotteryno = "3603790001554250012285104303358";
                     rcpd.lotteryNo = lotteryno;
                     rcpd.misc = "";
-                    rcpd.prizeAmt = "50000";
-                    rcpd.prizeStatus = "1";
-                    rcpd.reqType = "02";
+                    rcpd.prizeAmt = "";
+                    rcpd.prizeStatus = "";
+                    rcpd.reqType = "";
                     rcpd.sendIp = "";
                     rcpd.sendMark = "";
                     rcpd.sendTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                     rcpd.terminalCode = "0001";
                     rcpd.terminalId = "10000";
-                    rcpd.userId = "oB4nYjnoHhuWrPVi2pYLuPjnCaU0";
+                    rcpd.userId = "";
                     rcpd.version = "1.0.0";
                     
                     cpreq.requestData = rcpd;
@@ -378,7 +378,7 @@ namespace LotteryBaseLibTest
                         string lotteryNumStr = Console.ReadLine();
                         if (lotteryNumStr == "")
                         {
-                            item = new TerminalPrepOrderLotteryDtosItem();
+                            coitem = new ContinueOrderLotteryDtosItem();
                             continue;
                         }
                         short Num;

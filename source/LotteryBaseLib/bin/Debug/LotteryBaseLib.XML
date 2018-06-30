@@ -1211,6 +1211,36 @@
             彩票序列号,R
             </summary>
         </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseCashPrizeData.userId">
+            <summary>
+            用户ID，微信 openid
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseCashPrizeData.cashType">
+            <summary>
+            兑奖类型
+            0：扫码
+            1：输入
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseCashPrizeData.prizeStatus">
+            <summary>
+            中奖状态
+            0 未兑奖
+            1 中奖
+            2 未中奖
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseCashPrizeData.prizeAmt">
+            <summary>
+            中奖金额,单位分
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseCashPrizeData.awardStatus">
+            <summary>
+            派奖状态，C
+            </summary>
+        </member>
         <member name="P:LotteryBaseLib.TerminalIf.ResponseCashPrizeData.msgExt">
             <summary>
             附加信息，C，如更新状态不为0则返回更新描述
@@ -1395,6 +1425,11 @@
         <member name="P:LotteryBaseLib.TerminalIf.ResponseAwardOrderData.awardUrl">
             <summary>
             派奖二维码，C，请求类型为02终端时返回
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.ResponseAwardOrderData.awardOrderId">
+            <summary>
+            派奖订单号
             </summary>
         </member>
         <member name="P:LotteryBaseLib.TerminalIf.ResponseAwardOrderData.msgExt">
