@@ -111,7 +111,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(terminalinitreq);
 
-                Console.WriteLine("请求:"+message);
+                PublicLib.logger.Info("请求:" + message);
             
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -134,9 +134,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        terminalinitrsp.respCode = "9999";
-                        terminalinitrsp.respDesc = "初始化数据签名验证失败";
-                        return terminalinitrsp;
+                        //terminalinitrsp.respCode = "9999";
+                        //terminalinitrsp.respDesc = "初始化数据签名验证失败";
+                        //return terminalinitrsp;
                     }
                     //解析Response
                     terminalinitrsp = (TerminalInitRsp)JsonTools.JsonToObject(response.Content, terminalinitrsp);
@@ -177,7 +177,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(preporderreq);
 
-                Console.WriteLine("请求:" + message);
+                PublicLib.logger.Info("请求:" + message);
 
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -200,9 +200,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        preporderrsp.respCode = "9999";
-                        preporderrsp.respDesc = "预下单数据签名验证失败";
-                        return preporderrsp;
+                        //preporderrsp.respCode = "9999";
+                        //preporderrsp.respDesc = "预下单数据签名验证失败";
+                        //return preporderrsp;
                     }
                     //解析Response
                     preporderrsp = (PrepOrderRsp)JsonTools.JsonToObject(response.Content, preporderrsp);
@@ -243,7 +243,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(queryorderreq);
 
-                Console.WriteLine("请求:" + message);
+                PublicLib.logger.Info("请求:" + message);
 
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -266,9 +266,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        queryorderrsp.respCode = "9999";
-                        queryorderrsp.respDesc = "交易查询数据签名验证失败";
-                        return queryorderrsp;
+                        //queryorderrsp.respCode = "9999";
+                        //queryorderrsp.respDesc = "交易查询数据签名验证失败";
+                        //return queryorderrsp;
                     }
                     //解析Response
                     queryorderrsp = (QueryOrderRsp)JsonTools.JsonToObject(response.Content, queryorderrsp);
@@ -309,7 +309,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(outticketreq);
 
-                Console.WriteLine("请求:" + message);
+                PublicLib.logger.Info("请求:" + message);
 
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -332,9 +332,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        outticketrsp.respCode = "9999";
-                        outticketrsp.respDesc = "出票状态更新数据签名验证失败";
-                        return outticketrsp;
+                        //outticketrsp.respCode = "9999";
+                        //outticketrsp.respDesc = "出票状态更新数据签名验证失败";
+                        //return outticketrsp;
                     }
                     //解析Response
                     outticketrsp = (OutTicketRsp)JsonTools.JsonToObject(response.Content, outticketrsp);
@@ -375,7 +375,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(cashprizereq);
 
-                Console.WriteLine("请求:" + message);
+                PublicLib.logger.Info("请求:" + message);
 
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -398,9 +398,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        cashprizersp.respCode = "9999";
-                        cashprizersp.respDesc = "终端兑奖数据签名验证失败";
-                        return cashprizersp;
+                        //cashprizersp.respCode = "9999";
+                        //cashprizersp.respDesc = "终端兑奖数据签名验证失败";
+                        //return cashprizersp;
                     }
                     //解析Response
                     cashprizersp = (CashPrizeRsp)JsonTools.JsonToObject(response.Content, cashprizersp);
@@ -441,7 +441,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(awardorderreq);
 
-                Console.WriteLine("请求:" + message);
+                PublicLib.logger.Info("请求:" + message);
 
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -464,9 +464,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        awardorderrsp.respCode = "9999";
-                        awardorderrsp.respDesc = "派奖数据签名验证失败";
-                        return awardorderrsp;
+                        //awardorderrsp.respCode = "9999";
+                        //awardorderrsp.respDesc = "派奖数据签名验证失败";
+                        //return awardorderrsp;
                     }
                     //解析Response
                     awardorderrsp = (AwardOrderRsp)JsonTools.JsonToObject(response.Content, awardorderrsp);
@@ -507,7 +507,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(terminalupdatereq);
 
-                Console.WriteLine("请求:" + message);
+                PublicLib.logger.Info("请求:" + message);
 
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -530,9 +530,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        terminalupdatersp.respCode = "9999";
-                        terminalupdatersp.respDesc = "终端状态同步数据签名验证失败";
-                        return terminalupdatersp;
+                        //terminalupdatersp.respCode = "9999";
+                        //terminalupdatersp.respDesc = "终端状态同步数据签名验证失败";
+                        //return terminalupdatersp;
                     }
                     //解析Response
                     terminalupdatersp = (TerminalUpdateRsp)JsonTools.JsonToObject(response.Content, terminalupdatersp);
@@ -573,7 +573,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(queryadsreq);
 
-                Console.WriteLine("请求:" + message);
+                PublicLib.logger.Info("请求:" + message);
 
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -596,9 +596,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        queryadsrsp.respCode = "9999";
-                        queryadsrsp.respDesc = "广告查询数据签名验证失败";
-                        return queryadsrsp;
+                        //queryadsrsp.respCode = "9999";
+                        //queryadsrsp.respDesc = "广告查询数据签名验证失败";
+                        //return queryadsrsp;
                     }
                     //解析Response
                     queryadsrsp = (QueryAdsRsp)JsonTools.JsonToObject(response.Content, queryadsrsp);
@@ -640,7 +640,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(continueorderreq);
 
-                Console.WriteLine("请求:" + message);
+                PublicLib.logger.Info("请求:" + message);
 
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -663,9 +663,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        continueorderrsp.respCode = "9999";
-                        continueorderrsp.respDesc = "派奖数据签名验证失败";
-                        return continueorderrsp;
+                        //continueorderrsp.respCode = "9999";
+                        //continueorderrsp.respDesc = "派奖数据签名验证失败";
+                        //return continueorderrsp;
                     }
                     //解析Response
                     continueorderrsp = (ContinueOrderRsp)JsonTools.JsonToObject(response.Content, continueorderrsp);
@@ -706,7 +706,7 @@ namespace LotteryBaseLib.TerminalIf
 
                 message = JsonTools.ObjectToJson(queryawardorderreq);
 
-                Console.WriteLine("请求:" + message);
+                PublicLib.logger.Info("请求:" + message);
 
                 request.AddParameter("application/json", message, ParameterType.RequestBody);
                 var response = Execute<PostCreated>(request);
@@ -729,9 +729,9 @@ namespace LotteryBaseLib.TerminalIf
                     PublicLib.logger.Info("签名验证:" + ret);
                     if (ret == false)
                     {
-                        queryawardorderrsp.respCode = "9999";
-                        queryawardorderrsp.respDesc = "派奖查询数据签名验证失败";
-                        return queryawardorderrsp;
+                        //queryawardorderrsp.respCode = "9999";
+                        //queryawardorderrsp.respDesc = "派奖查询数据签名验证失败";
+                        //return queryawardorderrsp;
                     }
                     //解析Response
                     queryawardorderrsp = (QueryAwardOrderRsp)JsonTools.JsonToObject(response.Content, queryawardorderrsp);
@@ -868,7 +868,7 @@ namespace LotteryBaseLib.TerminalIf
         /// <summary>
         /// 调试输出开关
         /// </summary>
-        private static bool DebugFlag = false;
+        private static bool DebugFlag = true;
 
         private static bool InitFlag = false;
         
