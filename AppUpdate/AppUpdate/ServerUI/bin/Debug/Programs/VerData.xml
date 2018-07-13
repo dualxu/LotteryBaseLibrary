@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="yes"?>
+<VersionData>
+  <xs:schema id="VersionData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="VersionData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="vertable">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ExeName" type="xs:string" minOccurs="0" />
+                <xs:element name="FullVersion" type="xs:string" minOccurs="0" />
+                <xs:element name="First" type="xs:int" minOccurs="0" />
+                <xs:element name="Second" type="xs:int" minOccurs="0" />
+                <xs:element name="Third" type="xs:int" minOccurs="0" />
+                <xs:element name="Forth" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <vertable>
+    <ExeName>ServerUI.exe</ExeName>
+    <FullVersion>1.0.4168.18221</FullVersion>
+    <First>1</First>
+    <Second>0</Second>
+    <Third>4168</Third>
+    <Forth>18221</Forth>
+  </vertable>
+</VersionData>

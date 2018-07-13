@@ -1417,9 +1417,9 @@ namespace LotteryBaseLib.TerminalIf
         public List<ContinueOrderLotteryDtosItem> terminalLotteryDtos { get; set; }
         /// <summary>
         /// 支付类型，如奖金剩余需要派奖，则为派奖方式；如奖金不足则为支付方式；
-        //  01 支付宝
-        //  02 微信
-        //  03 微信公众号支付
+        ///  01 支付宝
+        ///  02 微信
+        ///  03 微信公众号支付
         /// </summary>
         public string payType { get; set; }
         /// <summary>

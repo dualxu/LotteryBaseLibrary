@@ -12,10 +12,71 @@ using LotteryBaseLib.Public;
 namespace LotteryBaseLib.TerminalIf
 {
     /// <summary>
+    /// 本地广告数据
+    /// </summary>
+    public class QueryAdsLotteryDtosItemLocal
+    {
+        /// <summary>
+        /// 本地广告保存的序列号
+        /// </summary>
+        public string adsSerial { get; set; }
+        /// <summary>
+        /// 广告ID
+        /// </summary>
+        public string adsId { get; set; }
+        /// <summary>
+        /// 广告名称
+        /// </summary>
+        public string adsName { get; set; }
+        /// <summary>
+        /// 广告类别，1上屏；2中屏；3下屏；4屏保
+        /// </summary>
+        public string adsKind { get; set; }
+        /// <summary>
+        /// 广告类型，1图片，2视频
+        /// </summary>
+        public string adsType { get; set; }
+        /// <summary>
+        /// 文件路径
+        /// </summary>
+        public string filePath { get; set; }
+        /// <summary>
+        /// 文件大小
+        /// </summary>
+        public string fileSize { get; set; }
+        /// <summary>
+        /// 开始日期
+        /// </summary>
+        public string beginDate { get; set; }
+        /// <summary>
+        /// 结束日期
+        /// </summary>
+        public string endDate { get; set; }
+        /// <summary>
+        /// 播放时间，单位：秒
+        /// </summary>
+        public string playTime { get; set; }
+        /// <summary>
+        /// 播放顺序
+        /// </summary>
+        public string playSeq { get; set; }
+        /// <summary>
+        /// 下载模式
+        /// 1 远程下载
+        /// 2 U盘更新
+        /// </summary>
+        public string downloadMode { get; set; }
+    }
+    
+    
+    
+    /// <summary>
     /// 广告下载类
     /// </summary>
     public class AdsDownloader
     {
+        private static int localCount = 0;
+        
         /// <summary>
         /// 下载图片
         /// </summary>
@@ -99,10 +160,44 @@ namespace LotteryBaseLib.TerminalIf
                 {
                     if (adsList.Count > 0)
                     {
+                        //获取本地配置
+                        List<QueryAdsLotteryDtosItemLocal> adsListLocal = new List<QueryAdsLotteryDtosItemLocal>();
+                        LoadAdsDownloadConfig(out adsListLocal);
+
+                        //更新下载列表
+                        if ((adsListLocal != null) && (adsListLocal.Count > 0))
+                        {
+                            //foreach (QueryAdsLotteryDtosItemLocal adslocal in adsListLocal)
+                            for(int i=0;i<adsListLocal.Count;i++)
+                            {
+                                //foreach (QueryAdsLotteryDtosItem ads in adsList)
+                                for(int j=0;j<adsList.Count;j++)
+                                {
+                                    string imgName = adsList[j].filePath.ToString().Substring(adsList[j].filePath.ToString().LastIndexOf("/") + 1);
+                                    if (adsListLocal[i].filePath == imgName)
+                                    {
+                                        if ((adsListLocal[i].beginDate == adsList[j].beginDate) && (adsListLocal[i].endDate == adsList[j].endDate))
+                                        {
+                                            //adsList.Remove(ads);
+                                            adsList.RemoveAt(j);
+                                        }
+                                        else
+                                        {
+                                            UpdateAdsDownloadConfigSingleNode(adsListLocal[i].adsSerial, adsList[j].beginDate, adsList[j].endDate);
+                                            //adsList.Remove(ads);
+                                            adsList.RemoveAt(j);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        //下载
                         foreach (QueryAdsLotteryDtosItem ads in adsList)
                         {
                             AdsDownloader.DownloadPicture(ads.filePath, SavePath, 60000);
                         }
+                        //更新本地配置
                         AdsDownloader.UpdateAdsDownloadConfig(adsList);
                     }
                 }
@@ -135,20 +230,14 @@ namespace LotteryBaseLib.TerminalIf
                 t_xml.Load(t_s_xmlpath);
 
                 var root = t_xml.DocumentElement;
-
-                XmlNode t_node = t_xml.SelectSingleNode("root/adsconfig");
-                root.RemoveChild(t_node);
+                //
+                XmlNode t_node = t_xml.SelectSingleNode("root/adsconfig/ads");
+                XmlElement xe = (XmlElement)t_node;
+                xe.SetAttribute("count", (localCount + adslist.Count).ToString());
                 t_xml.Save(t_s_xmlpath);
                 //
-                XmlElement adsconfig = t_xml.CreateElement("adsconfig");
-                root.AppendChild(adsconfig);
-                //
                 t_node = t_xml.SelectSingleNode("root/adsconfig");
-                XmlElement count = t_xml.CreateElement("ads");
-                count.SetAttribute("count", adslist.Count.ToString());
-                t_node.AppendChild(count);
-                //
-                int number = 1;
+                int number = 1 + localCount;
                 foreach (QueryAdsLotteryDtosItem ads in adslist)
                 {
                     XmlElement member = t_xml.CreateElement("ads" + number.ToString("D3"));
@@ -173,6 +262,141 @@ namespace LotteryBaseLib.TerminalIf
             catch (Exception ex)
             {
                 PublicLib.logger.Error("AdsDownloader->UpdateAdsDownloadConfig:" + ex.Message);
+                return false;
+            }
+            finally
+            {
+
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 更新广告查询结果XML配置文件单一节点
+        /// </summary>
+        /// <param name="strNode">节点名称</param>
+        /// <param name="beginDate">开始日期</param>
+        /// <param name="endDate">结束日期</param>
+        /// <returns></returns>
+        private static bool UpdateAdsDownloadConfigSingleNode(string strNode, string beginDate, string endDate)
+        {
+            try
+            {
+                string t_s_xmlpath = ".\\lotterybaselib_config.xml";
+                if (File.Exists(t_s_xmlpath) == false)
+                {
+                    PublicLib.logger.Error("AdsDownloader->UpdateAdsDownloadConfigSingleNode, Err:配置文件找不到," + t_s_xmlpath);
+                    return false;
+                }
+                XmlDocument t_xml = new XmlDocument();
+                t_xml.Load(t_s_xmlpath);
+
+                var root = t_xml.DocumentElement;
+
+                XmlNode t_node = t_xml.SelectSingleNode("root/adsconfig/" + strNode);
+                XmlElement xe = (XmlElement)t_node;
+                xe.SetAttribute("beginDate", beginDate);
+                xe.SetAttribute("endDate", endDate);
+                //
+                t_xml.Save(t_s_xmlpath);
+            }
+            catch (Exception ex)
+            {
+                PublicLib.logger.Error("AdsDownloader->UpdateAdsDownloadConfigSingleNode:" + ex.Message);
+                return false;
+            }
+            finally
+            {
+
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 载入广告查询结果XML配置文件
+        /// </summary>
+        /// <param name="adslist"></param>
+        /// <returns></returns>
+        private static bool LoadAdsDownloadConfig(out List<QueryAdsLotteryDtosItemLocal> adslist)
+        {
+            try
+            {
+                List<QueryAdsLotteryDtosItemLocal> items = new List<QueryAdsLotteryDtosItemLocal>();
+                QueryAdsLotteryDtosItemLocal item = new QueryAdsLotteryDtosItemLocal();
+                
+                string t_s_xmlpath = ".\\lotterybaselib_config.xml";
+                if (File.Exists(t_s_xmlpath) == false)
+                {
+                    PublicLib.logger.Error("AdsDownloader->LoadAdsDownloadConfig, Err:配置文件找不到," + t_s_xmlpath);
+                    adslist = items;
+                    return false;
+                }
+
+                string adsSerial = "";
+                string adsId = "";
+                string adsKind = "";
+                string adsType = "";
+                string adsName = "";
+                string beginDate = "";
+                string downloadMode = "";
+                string endDate = "";
+                string filePath = "";
+                string fileSize = "";
+                string playSeq = "";
+                string playTime = "";
+
+                XmlDocument t_xml = new XmlDocument();
+                t_xml.Load(t_s_xmlpath);
+
+                var root = t_xml.DocumentElement;
+                //
+                XmlNode t_node = t_xml.SelectSingleNode("root/adsconfig/ads");
+                int count = 0;
+                count = int.Parse(t_node.Attributes["count"].Value.ToString());
+                localCount = count;
+
+                for (int i = 1; i <= count; i++)
+                {
+                    item = new QueryAdsLotteryDtosItemLocal();
+                    
+                    t_node = t_xml.SelectSingleNode("root/adsconfig/ads" + i.ToString("D3"));
+
+                    adsSerial = "ads" + i.ToString("D3");
+                    adsId = t_node.Attributes["adsId"].Value.ToString();
+                    adsKind = t_node.Attributes["adsKind"].Value.ToString();
+                    adsType = t_node.Attributes["adsType"].Value.ToString();
+                    adsName = t_node.Attributes["adsName"].Value.ToString();
+                    beginDate = t_node.Attributes["beginDate"].Value.ToString();
+                    downloadMode = t_node.Attributes["downloadMode"].Value.ToString();
+                    endDate = t_node.Attributes["endDate"].Value.ToString();
+                    filePath = t_node.Attributes["filePath"].Value.ToString();
+                    fileSize = t_node.Attributes["fileSize"].Value.ToString();
+                    playSeq = t_node.Attributes["playSeq"].Value.ToString();
+                    playTime = t_node.Attributes["playTime"].Value.ToString();
+
+                    item.adsSerial = adsSerial;
+                    item.adsId = adsId;
+                    item.adsKind = adsKind;
+                    item.adsName = adsName;
+                    item.adsType = adsType;
+                    item.beginDate = beginDate;
+                    item.downloadMode = downloadMode;
+                    item.endDate = endDate;
+                    item.filePath = filePath;
+                    item.fileSize = fileSize;
+                    item.playSeq = playSeq;
+                    item.playTime = playTime;
+
+                    items.Add(item);
+                }
+                adslist = items;
+                t_xml.Save(t_s_xmlpath);
+            }
+            catch (Exception ex)
+            {
+                PublicLib.logger.Error("AdsDownloader->LoadAdsDownloadConfig:" + ex.Message);
+                List<QueryAdsLotteryDtosItemLocal> items = new List<QueryAdsLotteryDtosItemLocal>();
+                adslist = items;
                 return false;
             }
             finally

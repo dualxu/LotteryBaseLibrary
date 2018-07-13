@@ -113,7 +113,7 @@
             生成二维码
             </summary>
             <param name="strToEncode">待编码数据字符串</param>
-            <param name="ecclevel">ECC校验等级,L/M/Q/H,默认L</param>
+            <param name="eccLevel">ECC校验等级,L/M/Q/H,默认L</param>
             <param name="pixelsPerModule">每模块像素值,默认20</param>
             <returns>返回Bitmap或异常时为null</returns>
         </member>
@@ -172,6 +172,73 @@
             <param name="BarCode">成功时返回扫描到的条形码</param>
             <returns>返回：0-成功，其他失败</returns>
         </member>
+        <member name="T:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal">
+            <summary>
+            本地广告数据
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.adsSerial">
+            <summary>
+            本地广告保存的序列号
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.adsId">
+            <summary>
+            广告ID
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.adsName">
+            <summary>
+            广告名称
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.adsKind">
+            <summary>
+            广告类别，1上屏；2中屏；3下屏；4屏保
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.adsType">
+            <summary>
+            广告类型，1图片，2视频
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.filePath">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.fileSize">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.beginDate">
+            <summary>
+            开始日期
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.endDate">
+            <summary>
+            结束日期
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.playTime">
+            <summary>
+            播放时间，单位：秒
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.playSeq">
+            <summary>
+            播放顺序
+            </summary>
+        </member>
+        <member name="P:LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal.downloadMode">
+            <summary>
+            下载模式
+            1 远程下载
+            2 U盘更新
+            </summary>
+        </member>
         <member name="T:LotteryBaseLib.TerminalIf.AdsDownloader">
             <summary>
             广告下载类
@@ -197,6 +264,22 @@
         <member name="M:LotteryBaseLib.TerminalIf.AdsDownloader.UpdateAdsDownloadConfig(System.Collections.Generic.List{LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItem})">
             <summary>
             更新广告查询结果XML配置文件
+            </summary>
+            <param name="adslist"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LotteryBaseLib.TerminalIf.AdsDownloader.UpdateAdsDownloadConfigSingleNode(System.String,System.String,System.String)">
+            <summary>
+            更新广告查询结果XML配置文件单一节点
+            </summary>
+            <param name="strNode">节点名称</param>
+            <param name="beginDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:LotteryBaseLib.TerminalIf.AdsDownloader.LoadAdsDownloadConfig(System.Collections.Generic.List{LotteryBaseLib.TerminalIf.QueryAdsLotteryDtosItemLocal}@)">
+            <summary>
+            载入广告查询结果XML配置文件
             </summary>
             <param name="adslist"></param>
             <returns></returns>
@@ -1881,7 +1964,14 @@
             彩金下单票箱数据列表
             </summary>
         </member>
-        <!-- 对于成员“P:LotteryBaseLib.TerminalIf.RequestContinueOrderData.payType”忽略有格式错误的 XML 注释 -->
+        <member name="P:LotteryBaseLib.TerminalIf.RequestContinueOrderData.payType">
+            <summary>
+            支付类型，如奖金剩余需要派奖，则为派奖方式；如奖金不足则为支付方式；
+             01 支付宝
+             02 微信
+             03 微信公众号支付
+            </summary>
+        </member>
         <member name="P:LotteryBaseLib.TerminalIf.RequestContinueOrderData.lotteryNo">
             <summary>
             中奖彩票序列号，多张以,分隔
@@ -2456,7 +2546,7 @@
             <summary>
             派奖查询
             </summary>
-            <param name="queryorderreq">派奖查询请求</param>
+            <param name="queryawardorderreq">派奖查询请求</param>
             <returns></returns>
         </member>
         <member name="T:LotteryBaseLib.TiCaiCut.TiCaiCut">

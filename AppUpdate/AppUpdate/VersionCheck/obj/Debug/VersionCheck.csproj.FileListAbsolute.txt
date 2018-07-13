@@ -1,0 +1,4 @@
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\VersionCheck\bin\Debug\VersionCheck.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\VersionCheck\bin\Debug\VersionCheck.pdb
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\VersionCheck\obj\Debug\VersionCheck.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\VersionCheck\obj\Debug\VersionCheck.pdb

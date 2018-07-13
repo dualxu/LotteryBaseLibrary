@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="yes"?>
+<FileListData>
+  <xs:schema id="FileListData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="FileListData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="FileListTable">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FileName" type="xs:string" minOccurs="0" />
+                <xs:element name="FileLength" type="xs:long" minOccurs="0" />
+                <xs:element name="OtherRemark" type="xs:string" minOccurs="0" />
+                <xs:element name="DestDirectory" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <FileListTable>
+    <FileName>Debug.zip</FileName>
+    <FileLength>121158</FileLength>
+  </FileListTable>
+</FileListData>

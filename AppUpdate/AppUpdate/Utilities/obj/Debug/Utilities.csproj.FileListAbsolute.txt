@@ -1,0 +1,4 @@
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Utilities\bin\Debug\Utilities.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Utilities\bin\Debug\Utilities.pdb
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Utilities\obj\Debug\Utilities.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Utilities\obj\Debug\Utilities.pdb

@@ -1,0 +1,5 @@
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\ZipLibrary\bin\Debug\ZipLibrary.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\ZipLibrary\bin\Debug\ZipLibrary.pdb
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\ZipLibrary\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\ZipLibrary\obj\Debug\ZipLibrary.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\ZipLibrary\obj\Debug\ZipLibrary.pdb

@@ -1,0 +1,8 @@
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\WizardLibrary\bin\Debug\WizardLibrary.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\WizardLibrary\bin\Debug\WizardLibrary.pdb
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\WizardLibrary\obj\Debug\Tools.WizardLibrary.Properties.Resources.resources
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\WizardLibrary\obj\Debug\Tools.WizardLibrary.StepControlBase.resources
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\WizardLibrary\obj\Debug\Tools.WizardLibrary.WizardFormBase.resources
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\WizardLibrary\obj\Debug\WizardLibrary.csproj.GenerateResource.Cache
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\WizardLibrary\obj\Debug\WizardLibrary.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\WizardLibrary\obj\Debug\WizardLibrary.pdb

@@ -991,6 +991,15 @@ namespace LotteryBaseLib.TerminalIf
                         PublicLib.logger.Info("返回:初始化:");
                         PublicLib.logger.Info(str);
                     }
+                    if (rsp.responseData != null)
+                    {
+                        if (rsp.responseData.img1 == null) rsp.responseData.img1 = "";
+                        if (rsp.responseData.img2 == null) rsp.responseData.img2 = "";
+                        if (rsp.responseData.img3 == null) rsp.responseData.img3 = "";
+                        if (rsp.responseData.msgExt == null) rsp.responseData.msgExt = "";
+                        if (rsp.responseData.sessionKey == null) rsp.responseData.sessionKey = "";
+                        if (rsp.responseData.updateAddress == null) rsp.responseData.updateAddress = "";
+                    }
                     return rsp;
                 }
 
@@ -1408,7 +1417,7 @@ namespace LotteryBaseLib.TerminalIf
         /// <summary>
         /// 派奖查询
         /// </summary>
-        /// <param name="queryorderreq">派奖查询请求</param>
+        /// <param name="queryawardorderreq">派奖查询请求</param>
         /// <returns></returns>
         public static QueryAwardOrderRsp QueryAwardOrder(QueryAwardOrderReq queryawardorderreq)
         {

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="AppUpdate">
+</Property><Property Name="解决方案文件" Value="D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\AppUpdate.sln">
+</Property><Property Name="Date" Value="2018年7月4日">
+</Property><Property Name="Time" Value="22:00">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="AppUpdate.sln" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\AppUpdate.sln">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\ClientUI.csproj" Description="项目文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\ClientUI.csproj">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\ClientUI.csproj.user" Description="项目用户文件成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\ClientUI.csproj.user">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\AssemblyInfo.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\GlobalObjects.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\GlobalObjects.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\MainEntry.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\MainEntry.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\MainForm.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\MainForm.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\Properties\Resources.Designer.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\SilentOperation.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\SilentOperation.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\StepControl1.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\StepControl1.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\StepControl2.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\StepControl2.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\StepControl3.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\StepControl3.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\StepControl4.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\StepControl4.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\UrlConfigForm.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\UrlConfigForm.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\UrlConfigForm.Designer.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\UrlConfigForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\VersionChecker.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\VersionChecker.cs">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\App.config" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\App.config">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\Resources\背景杂色.png" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\Resources\背景杂色.png">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\apply.ico" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\apply.ico">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\update.jpg" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\update.jpg">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\MainForm.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\MainForm.resx">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\Properties\Resources.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\StepControl1.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\StepControl1.resx">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\StepControl2.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\StepControl2.resx">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\StepControl3.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\StepControl3.resx">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\StepControl4.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\StepControl4.resx">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\UrlConfigForm.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ClientUI\UrlConfigForm.resx">
+</Event><Event ErrorLevel="1" Project="ClientUI" Source="ClientUI\ClientUI.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\ClientUI.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="ClientUI" Source="ClientUI\ClientUI.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DataModels" Source="DataModels\DataModels.csproj" Description="项目文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DataModels\DataModels.csproj">
+</Event><Event ErrorLevel="0" Project="DataModels" Source="DataModels\DataModels.csproj.user" Description="项目用户文件成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DataModels\DataModels.csproj.user">
+</Event><Event ErrorLevel="0" Project="DataModels" Source="DataModels\AssemblyInfo.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DataModels\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="DataModels" Source="DataModels\FileListData.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DataModels\FileListData.cs">
+</Event><Event ErrorLevel="0" Project="DataModels" Source="DataModels\VersionData.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DataModels\VersionData.cs">
+</Event><Event ErrorLevel="0" Project="DataModels" Source="DataModels\FileListData.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DataModels\FileListData.resx">
+</Event><Event ErrorLevel="1" Project="DataModels" Source="DataModels\DataModels.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="DataModels" Source="DataModels\DataModels.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="DataModels" Source="DataModels\DataModels.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\ServerUI.csproj" Description="项目文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\ServerUI.csproj">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\ServerUI.csproj.user" Description="项目用户文件成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\ServerUI.csproj.user">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\AssemblyInfo.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\ConfigurationValues.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\ConfigurationValues.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\GlobalObjects.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\GlobalObjects.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\MainEntry.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\MainEntry.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\MainForm.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\MainForm.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\StepControl1.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\StepControl1.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\StepControl2.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\StepControl2.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\StepControl3.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\StepControl3.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\StepControl4.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\StepControl4.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\UserControl1.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\UserControl1.cs">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\App.config" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\App.config">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\App.ico" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\App.ico">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\MainForm.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\MainForm.resx">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\StepControl1.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\StepControl1.resx">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\StepControl2.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\StepControl2.resx">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\StepControl3.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\StepControl3.resx">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\StepControl4.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\StepControl4.resx">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\UserControl1.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ServerUI\UserControl1.resx">
+</Event><Event ErrorLevel="1" Project="ServerUI" Source="ServerUI\ServerUI.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\ServerUI.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="ServerUI" Source="ServerUI\ServerUI.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ZipLibrary" Source="ZipLibrary\ZipLibrary.csproj" Description="项目文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ZipLibrary\ZipLibrary.csproj">
+</Event><Event ErrorLevel="0" Project="ZipLibrary" Source="ZipLibrary\ZipLibrary.csproj.user" Description="项目用户文件成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ZipLibrary\ZipLibrary.csproj.user">
+</Event><Event ErrorLevel="0" Project="ZipLibrary" Source="ZipLibrary\AssemblyInfo.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ZipLibrary\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ZipLibrary" Source="ZipLibrary\ZipHelper.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\ZipLibrary\ZipHelper.cs">
+</Event><Event ErrorLevel="1" Project="ZipLibrary" Source="ZipLibrary\ZipLibrary.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="ZipLibrary" Source="ZipLibrary\ZipLibrary.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="ZipLibrary" Source="ZipLibrary\ZipLibrary.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\DownloadLibrary.csproj" Description="项目文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DownloadLibrary\DownloadLibrary.csproj">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\DownloadLibrary.csproj.user" Description="项目用户文件成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DownloadLibrary\DownloadLibrary.csproj.user">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\AssemblyInfo.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DownloadLibrary\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\DownloadHelper.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DownloadLibrary\DownloadHelper.cs">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\DownloadInstructions.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DownloadLibrary\DownloadInstructions.cs">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\HttpBatchDownload.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DownloadLibrary\HttpBatchDownload.cs">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\HttpDownload.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DownloadLibrary\HttpDownload.cs">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\HttpProgress.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\DownloadLibrary\HttpProgress.cs">
+</Event><Event ErrorLevel="1" Project="DownloadLibrary" Source="DownloadLibrary\DownloadLibrary.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\DownloadLibrary.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="DownloadLibrary" Source="DownloadLibrary\DownloadLibrary.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\WizardLibrary.csproj" Description="项目文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\WizardLibrary.csproj">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\WizardLibrary.csproj.user" Description="项目用户文件成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\WizardLibrary.csproj.user">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\AssemblyInfo.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\Controller.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\Controller.cs">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\IUIWizard.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\IUIWizard.cs">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\Properties\Resources.Designer.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\StepControlBase.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\StepControlBase.cs">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\WizardFormBase.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\WizardFormBase.cs">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\WizardObjects.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\WizardObjects.cs">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\Resources\背景.png" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\Resources\背景.png">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\Properties\Resources.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\StepControlBase.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\StepControlBase.resx">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\WizardFormBase.resx" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\WizardLibrary\WizardFormBase.resx">
+</Event><Event ErrorLevel="1" Project="WizardLibrary" Source="WizardLibrary\WizardLibrary.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\WizardLibrary.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="WizardLibrary" Source="WizardLibrary\WizardLibrary.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Utilities" Source="Utilities\Utilities.csproj" Description="项目文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\Utilities\Utilities.csproj">
+</Event><Event ErrorLevel="0" Project="Utilities" Source="Utilities\Utilities.csproj.user" Description="项目用户文件成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\Utilities\Utilities.csproj.user">
+</Event><Event ErrorLevel="0" Project="Utilities" Source="Utilities\AssemblyInfo.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\Utilities\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Utilities" Source="Utilities\FileOperation.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\Utilities\FileOperation.cs">
+</Event><Event ErrorLevel="0" Project="Utilities" Source="Utilities\FileOperationAdvance.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\Utilities\FileOperationAdvance.cs">
+</Event><Event ErrorLevel="1" Project="Utilities" Source="Utilities\Utilities.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="Utilities" Source="Utilities\Utilities.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Utilities" Source="Utilities\Utilities.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="VersionCheck" Source="VersionCheck\VersionCheck.csproj" Description="项目文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\VersionCheck\VersionCheck.csproj">
+</Event><Event ErrorLevel="0" Project="VersionCheck" Source="VersionCheck\VersionCheck.csproj.user" Description="项目用户文件成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\VersionCheck\VersionCheck.csproj.user">
+</Event><Event ErrorLevel="0" Project="VersionCheck" Source="VersionCheck\AssemblyInfo.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\VersionCheck\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="VersionCheck" Source="VersionCheck\ConfigurationValues.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\VersionCheck\ConfigurationValues.cs">
+</Event><Event ErrorLevel="0" Project="VersionCheck" Source="VersionCheck\VersionChecker.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\VersionCheck\VersionChecker.cs">
+</Event><Event ErrorLevel="0" Project="VersionCheck" Source="VersionCheck\XmlConfigWriter.cs" Description="文件已成功备份为 D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\Backup\VersionCheck\XmlConfigWriter.cs">
+</Event><Event ErrorLevel="1" Project="VersionCheck" Source="VersionCheck\VersionCheck.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="VersionCheck" Source="VersionCheck\VersionCheck.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="VersionCheck" Source="VersionCheck\VersionCheck.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="AppUpdate.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="AppUpdate.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ClientUI" Source="ClientUI\ClientUI.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="DataModels" Source="DataModels\DataModels.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="ServerUI" Source="ServerUI\ServerUI.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="ZipLibrary" Source="ZipLibrary\ZipLibrary.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="DownloadLibrary" Source="DownloadLibrary\DownloadLibrary.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="WizardLibrary" Source="WizardLibrary\WizardLibrary.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="Utilities" Source="Utilities\Utilities.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="VersionCheck" Source="VersionCheck\VersionCheck.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

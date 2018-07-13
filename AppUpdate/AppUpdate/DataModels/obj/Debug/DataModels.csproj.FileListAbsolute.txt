@@ -1,0 +1,6 @@
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\DataModels\bin\Debug\DataModels.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\DataModels\bin\Debug\DataModels.pdb
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\DataModels\obj\Debug\updater.DataModels.FileListData.resources
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\DataModels\obj\Debug\DataModels.csproj.GenerateResource.Cache
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\DataModels\obj\Debug\DataModels.dll
+D:\WorkSpace\Work2018\DevSpec\LotteryBaseLib\AppUpdate\AppUpdate\DataModels\obj\Debug\DataModels.pdb

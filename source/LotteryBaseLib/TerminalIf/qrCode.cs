@@ -21,7 +21,7 @@ namespace LotteryBaseLib.TerminalIf
         /// 生成二维码
         /// </summary>
         /// <param name="strToEncode">待编码数据字符串</param>
-        /// <param name="ecclevel">ECC校验等级,L/M/Q/H,默认L</param>
+        /// <param name="eccLevel">ECC校验等级,L/M/Q/H,默认L</param>
         /// <param name="pixelsPerModule">每模块像素值,默认20</param>
         /// <returns>返回Bitmap或异常时为null</returns>
         public static Bitmap GenerateQrCode(string strToEncode, string eccLevel, int pixelsPerModule)

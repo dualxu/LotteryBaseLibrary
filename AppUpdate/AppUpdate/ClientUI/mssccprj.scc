@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[ClientUI.csproj]
+SCC_Aux_Path = "\\dbserver\vss2005\AppUpdate20"
+SCC_Project_Name = "$/AppUpdate.root/AppUpdate/ClientUI", GAAAAAAA
